@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '',
         },
-        sitemap: 'https://www.mdherbecourt.dev/sitemap.xml',
+        sitemap: 'https://mdherbecourt.dev/sitemap.xml',
     }
 }

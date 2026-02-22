@@ -9,30 +9,31 @@ import { CustomAnalytics } from './api/client/analytics.tsx';
 
 export const metadata: Metadata = {
     title: {
-        template: '%s | ExplorableScience',
-        default: 'ExplorableScience | Explore Science Through Interactive Simulations'
+        template: '%s | Maxime Dherbécourt',
+        default: 'Maxime Dherbécourt Portfolio'
     },
-    description: "Discover and learn science concepts interactively with explorable articles and hands-on simulations covering physics, technology, and more.",
+    description: "Personal portfolio of Maxime Dherbécourt.",
     keywords: [
+        "portfolio", "maxime dherbecourt", "maxime dherbécourt", "dherbecourt", "mdherbecourt", "mdherbécourt",
         "science", "physics", "educational", "explorable", "explorables", "explorable-explanations", "interactive", "article",
         "articles", "simulation", "simulations", "learning", "research", "experiments", "visualization", "data", "technology"
     ],
-    authors: [{ name: "ExplorableScience", url: "https://www.explorablescience.com" }],
-    creator: "ExplorableScience",
-    publisher: "ExplorableScience",
+    authors: [{ name: "Maxime Dherbécourt", url: "https://mdherbecourt.dev" }],
+    creator: "Maxime Dherbécourt",
+    publisher: "Maxime Dherbécourt",
     category: "Science",
-    applicationName: "ExplorableScience",
+    applicationName: "Maxime Dherbécourt Portfolio",
     openGraph: {
-        title: "ExplorableScience | Explore Science Through Interactive Simulations",
-        description: "Explorable articles and interactive simulations on various scientific topics.",
-        url: "https://www.explorablescience.com/",
-        siteName: "ExplorableScience",
+        title: "Maxime Dherbécourt Portfolio",
+        description: "Personal portfolio of Maxime Dherbécourt.",
+        url: "https://mdherbecourt.dev/",
+        siteName: "Maxime Dherbécourt Portfolio",
         images: [
             {
-                url: "https://www.explorablescience.com/imgs/og-image.png",
+                url: "https://mdherbecourt.dev/imgs/og-image.png",
                 width: 686,
                 height: 335,
-                alt: "ExplorableScience - Explore Science Through Interactive Simulations"
+                alt: "Maxime Dherbécourt - Portfolio"
             }
         ],
         locale: "en_US",
@@ -40,22 +41,22 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "ExplorableScience | Explore Science Through Interactive Simulations",
-        description: "Discover and learn science concepts interactively with explorable articles and hands-on simulations covering physics, technology, and more.",
-        site: "https://www.explorablescience.com/",
-        creator: "@ExplorableSci",
+        title: "Maxime Dherbécourt Portfolio",
+        description: "Personal portfolio of Maxime Dherbécourt.",
+        site: "https://mdherbecourt.dev/",
+        creator: "@mdherbecourt",
         images: [
-            "https://www.explorablescience.com/imgs/og-image.png"
+            "https://mdherbecourt.dev/imgs/og-image.png"
         ]
     },
     robots: "index, follow",
     alternates: {
-        canonical: "https://www.explorablescience.com/",
+        canonical: "https://mdherbecourt.dev/",
         languages: {
-            "en-US": "https://www.explorablescience.com/"
+            "en-US": "https://mdherbecourt.dev/"
         },
         types: {
-            "application/rss+xml": "https://www.explorablescience.com/feed.xml"
+            "application/rss+xml": "https://mdherbecourt.dev/feed.xml"
         }
     }
 };
@@ -70,7 +71,7 @@ export default function RootLayout({
             <head>
                 {/* Google tag (gtag.js) */}
                 <Script
-                    src="https://www.googletagmanager.com/gtag/js?id=G-FLV6EYV4NL"
+                    src="https://www.googletagmanager.com/gtag/js?id=G-9SFPSHEBDE"
                     strategy="afterInteractive"
                 />
                 <Script id="gtag-init" strategy="afterInteractive">
@@ -78,12 +79,9 @@ export default function RootLayout({
                         window.dataLayer = window.dataLayer || [];
                         function gtag(){dataLayer.push(arguments);}
                         gtag('js', new Date());
-                        gtag('config', 'G-FLV6EYV4NL');
+                        gtag('config', 'G-9SFPSHEBDE');
                     `}
                 </Script>
-
-                {/* Google site verification */}
-                <meta name="google-site-verification" content="ZdIYOR1_E0-R6QFq4Y2P3EK4esoYPZnbwaB376vQj7M" />
             </head>
             <body className={styles.body}>
                 {children}

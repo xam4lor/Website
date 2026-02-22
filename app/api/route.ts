@@ -1,6 +1,6 @@
 export const runtime = 'nodejs';
-import { CommentPayload, DataStructure, DataType, DataUserPayload, ErrorReportPayload } from "./data_types";
-import { onComment, onConnectionReport as onUserData, onErrorReport } from "./database/handle_post";
+import { DataStructure, DataType, DataUserPayload, ErrorReportPayload } from "./data_types";
+import { onConnectionReport as onUserData, onErrorReport } from "./database/handle_post";
 
 async function handlePost(request: Request) : Promise<Response> {
     if (request.method !== 'POST') {
@@ -23,9 +23,6 @@ async function handlePost(request: Request) : Promise<Response> {
                     break;
                 case DataType.ERROR_REPORT:
                     await onErrorReport(data.payload as ErrorReportPayload);
-                    break;
-                case DataType.COMMENT:
-                    await onComment(data.payload as CommentPayload);
                     break;
                 default:
                     console.error('Error handling unknown data type:', data.type);

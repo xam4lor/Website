@@ -1,6 +1,6 @@
 ![MDherbecourt Logo](public/imgs/og-image.png)
 
-# Maxime Dherbécourt's Personal Website
+# Maxime Dherbécourt's [Personal Website](https://mdherbecourt.dev)
 
 **Welcome** to my personal website that contains my portfolio of my scientific carrer, including other personal projects. The website is built with Next.js and TypeScript.
 

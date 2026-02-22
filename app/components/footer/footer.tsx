@@ -1,6 +1,4 @@
-import Link from 'next/link'
 import styles from './footer.module.css'
-import Image from 'next/image'
 
 export default function Footer() {
     return (
@@ -9,32 +7,6 @@ export default function Footer() {
 
             <div className={styles.content}>
                 <div className={styles.footerContent}>
-                    <div className={styles.icons}>
-                        <Link href="https://twitter.com/ExplorableSci" className={styles.twitter}>
-                            <Image
-                                src="/icons/twitter.svg"
-                                alt="Twitter of ExplorableScience"
-                                width={30}
-                                height={30} />
-                        </Link>
-
-                        <Link href="https://github.com/explorablescience/" className={styles.github}>
-                            <Image
-                                src="/icons/github.svg"
-                                alt="Github of ExplorableScience"
-                                width={30}
-                                height={30} />
-                        </Link>
-
-                        <Link href="https://www.youtube.com/c/Mecanicascience" className={styles.youtube}>
-                            <Image
-                                src="/icons/youtube.svg"
-                                alt="Youtube channel of MecanicaScience"
-                                width={37}
-                                height={37} />
-                        </Link>
-                    </div>
-                    
                     <div className={styles.endText}>
                         <p>©{new Date().getFullYear()} ExplorableScience</p>
                         <p className={styles.separator}>|</p>

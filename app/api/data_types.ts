@@ -5,8 +5,7 @@ export type DataStructure = {
 
 export enum DataType {
     DATAUSER = "connection_report",
-    ERROR_REPORT = "error_report",
-    COMMENT = "comment"
+    ERROR_REPORT = "error_report"
 }
 
 export type DataUserPayload = {
@@ -25,11 +24,4 @@ export type ErrorReportPayload = {
     window: unknown;
     document: unknown;
     navigator: unknown;
-};
-
-export type CommentPayload = {
-    name: string;
-    email: string;
-    message: string;
-    trackingPayload: DataUserPayload;
 };

@@ -3,7 +3,6 @@
 import styles from './error.module.css'
 import logger from "./api/client/logger";
 import Header from './components/header/header';
-import Button from './components/ui/buttons/button';
 import HeaderAnimation from './components/header/header_animation';
 
 export default function GlobalError({ error, reset }: { error: Error & { digest?: string }, reset: () => void }) {
@@ -25,9 +24,9 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
                     </div>
 
                     <div className={styles.buttons}>
-                        <Button content='Go Home' link='/' size='standard' />
+                        {/* <Button content='Go Home' link='/' size='standard' /> */}
                         <span style={{ display: 'inline', marginLeft: '40px' }} />
-                        <Button content='Try again' action={() => reset()} size='standard' />
+                        {/* <Button content='Try again' action={() => reset()} size='standard' /> */}
                     </div>
                 </Header>
             </body>

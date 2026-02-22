@@ -2,7 +2,7 @@ import RSS from 'rss';
 
 export async function GET() {
     // Define the base URL of your website
-    const url = 'https://www.mdherbecourt.dev';
+    const url = 'https://mdherbecourt.dev';
 
     // Create the RSS main feed
     const feed = new RSS({

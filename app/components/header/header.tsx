@@ -3,7 +3,6 @@
 import styles from './header.module.css';
 import Image from 'next/image';
 import { montserrat } from '../../fonts';
-import ButtonScroll from '../ui/buttons/button-scroll';
 
 /**
  * Header component
@@ -35,8 +34,6 @@ export default function Header(props: { children?: React.ReactNode, style?: Reac
                 </div>
 
                 { props.children }
-
-                { props.showScrollButton && <ButtonScroll scrollId='articles' /> }
             </div>
         </header>
     )

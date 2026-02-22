@@ -61,9 +61,3 @@ export async function onErrorReport(payload: ErrorReportPayload) {
         return addUserReference(userId, 'errors', { path: newData.path, id: newData.id });
     });
 }
-export async function onComment(payload: CommentPayload) {
-    const userId = getUniqueUserId(payload.trackingPayload.ipAddress, payload.trackingPayload.navigator);
-    return await addUserData(userId, 'comments', payload).then(newData => {
-        return addUserReference(userId, 'comments', { path: newData.path, id: newData.id });
-    });
-}
