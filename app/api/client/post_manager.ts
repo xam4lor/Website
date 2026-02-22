@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ErrorInfo } from "react";
-import { CommentPayload, DataStructure, DataType, DataUserPayload, ErrorReportPayload } from "../data_types";
+import { DataStructure, DataType, DataUserPayload, ErrorReportPayload } from "../data_types";
 
 function isLocalhost() {
     try {
@@ -184,38 +184,4 @@ export async function postError(error: Error, info?: ErrorInfo) {
         },
         body: JSON.stringify(payload)
     });
-}
-
-export async function postComment(name: string, email: string, message: string): Promise<boolean> {
-    // Create payload
-    const ipAddress = await getIP();
-    const [windowData, documentData, navigatorData] = getWDNData();
-    const payload = {
-        type: DataType.COMMENT,
-        payload: {
-            name,
-            email,
-            message,
-            trackingPayload: {
-                timestamp: new Date().toISOString(),
-                ipAddress,
-                window: windowData,
-                document: documentData,
-                navigator: navigatorData
-            }
-        } as CommentPayload
-    } as DataStructure;
-
-    // Send report to server
-    if (isLocalhost()) {
-        console.log('[Analytics] Posting comment disregarded (localhost/dev)', payload);
-        return true;
-    }
-    return (await fetch(getApiEndpoint(), {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-    })).ok;
 }
