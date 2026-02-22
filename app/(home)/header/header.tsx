@@ -3,7 +3,8 @@
 import styles from './header.module.css';
 import Image from 'next/image';
 import { titleFont } from '../../fonts';
-import ButtonScroll from '@/app/ui/buttons/button-scroll';
+import HeaderAnimation from './header_animation';
+import { useRef } from 'react';
 
 function Gradient(props: { text: string, from: [number, number, number], to: [number, number, number] }) {
     const { text, from, to } = props;
@@ -18,8 +19,12 @@ function Gradient(props: { text: string, from: [number, number, number], to: [nu
  * @param props.style Style
  */
 export default function Header(props: { children?: React.ReactNode, style?: React.CSSProperties, home?: boolean }) {
+    const headerRef = useRef<HTMLElement>(null);
+    
     return <>
-        <header className={`${styles.header} ${titleFont.className}`} style={props.style}>
+        <header className={`${styles.header} ${titleFont.className}`} style={props.style} ref={headerRef}>
+            <HeaderAnimation headerRef={headerRef} />
+
             <div className={styles.headerContent}>
                 <div className={styles.headerContainer}>
                     <div className={styles.profilePicture}>
@@ -32,10 +37,6 @@ export default function Header(props: { children?: React.ReactNode, style?: Reac
                 </div>
 
                 {props.children}
-
-                <div className={styles.scrollDown}>
-                    <ButtonScroll scrollId='articles' />
-                </div>
             </div>
         </header>
     </>

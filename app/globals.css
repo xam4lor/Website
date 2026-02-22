@@ -3,6 +3,8 @@
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    background: var(--color-background);
+    color: var(--color-text);
 }
 
 ol, ul {

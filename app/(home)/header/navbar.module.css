@@ -1,88 +1,64 @@
-.nav {
-    background-color: #141923;
-    color: white;
-}
-
 .navbar {
-    display: flex;
-}
-
-.logo {
-    z-index: 20;
-    display: flex;
-    margin: 12px 0 0 25px;
-}
-.logo > a {
-    text-decoration: none;
-    color: white;
-    transition: color 0.2s ease-in-out;
-}
-.logo > a:hover {
-    color: rgb(240, 240, 240);
-}
-.logo > a > p {
-    font-size: 22px;
-    margin: 12px 0 0 13px;
-    font-weight: 600;
-    text-decoration: none;
-}
-.logo > a > img {
-    transform: rotate(0deg);
-    transition: transform 0.3s ease-in-out;
-}
-.logo > a > img:hover {
-    transform: rotate(5deg);
-}
-
-.links {
-    margin-left: auto;
-    display: flex;
-    z-index: 20;
-    margin-right: 20px;
-}
-
-.navbarBackground {
-    height: 122px;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin: -44px 0px -4vw 0px;
-    background-color: #141923;
-}
-@media (max-width: 1380px) {
-    .navbarBackground { height: 102px; }
-}
-@media (max-width: 880px) {
-    .navbarBackground { height: 80px; }
-}
-@media (min-width: 1750px) {
-    .navbarBackground { height: 131px; }
-}
-.navbarBackgroundSmall {
-    height: 58px !important;
+    z-index: 1000;
+    color: white;
+    background: linear-gradient(to bottom, var(--color-background), var(--color-background) 90%, rgba(0, 0, 0, 0));
+    padding-bottom: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.links > a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.2s ease-in-out;
-}
-.links > a:hover {
-    color: rgb(240, 240, 240);
-}
-.links > a > p {
-    font-size: 16px;
-    margin: 22px 18px 0 17px;
+.navbarContent {
+    justify-content: end;
+    align-items: center;
+    gap: 45px;
+    width: 90%;
+    max-width: 1600px;
+    font-size: 15px;
+    list-style: none;
+    display: flex;
+    margin-top: 25px;
     font-weight: 400;
-    text-transform: uppercase;
+}
+
+.navbarContent li {
+    list-style: none;
+    display: flex;
+    position: relative;
+}
+
+.navbarContent li a {
     text-decoration: none;
+    transition: color 0.2s ease
 }
-@media (max-width: 670px) {
-    .links > a > p {
-        font-size: 14px;
-        margin: 23px -2px 0 17px;
-    }
+.navbarContent li a::after {
+    content: "";
+    background-color: transparent;
+    border-radius: 3px;
+    height: 2px;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    width: 130%;
+    margin-left: -15%;
+    transition: background-color 0.5s ease;
 }
-@media (max-width: 600px) {
-    .explorablescience {
-        display: none;
-    }
+
+.navbarContent li a:hover {
+    color: var(--color-green);
+}
+.navbarContent li a.active::after {
+    content: "";
+    background-color: var(--color-green);
+    border-radius: 3px;
+    height: 2px;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    width: 130%;
+    margin-left: -15%;
 }

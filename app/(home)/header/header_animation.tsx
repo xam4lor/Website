@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './header_animation.module.css'
-import { JSX, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { JSX, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import React from "react";
 import { ErrorBoundary } from 'react-error-boundary';
 import logger from '@/app/api/client/logger';
@@ -261,23 +261,24 @@ function Canvas(props: { width: number, height: number, instance: CanvasElement,
     );
 }
 
-export default function HeaderAnimation({ small }: { small?: boolean }) {
+export default function HeaderAnimation({ headerRef }: { headerRef: React.RefObject<HTMLElement | null> }) {
     // Get window size
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
 
-    useLayoutEffect(() => {
-        // Handle window resize
-        const handleResize = () => {
-            setWidth(window.document.body.clientWidth);
-            setHeight(window.innerHeight);
-        };
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, [small]);
     useEffect(() => {
-        window.dispatchEvent(new Event('resize'));
-    }, []);
+        const updateSize = () => {
+            const currentRef = headerRef.current;
+            console.log("Updating size", currentRef);
+            if (!currentRef) return;
+            console.log("Updating size", currentRef.offsetWidth, currentRef.offsetHeight);
+            setWidth(currentRef.offsetWidth);
+            setHeight(currentRef.offsetHeight * 1.15);
+        }
+        updateSize();
+        window.addEventListener('resize', updateSize);
+        return () => window.removeEventListener('resize', updateSize);
+    }, [headerRef]);
 
     // Create simulation
     const particlesCount = width < 600 ? 100 : 150;
@@ -286,7 +287,7 @@ export default function HeaderAnimation({ small }: { small?: boolean }) {
     [particlesCount, width, height]);
 
     // Get mouse pressed
-    const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
     const startCounter = () => {
         if (intervalRef.current) return;
         intervalRef.current = setInterval(() => {
@@ -306,13 +307,13 @@ export default function HeaderAnimation({ small }: { small?: boolean }) {
         const updateMouse = (event: MouseEvent) => {
             physics.setMouse(event.clientX, event.clientY + window.scrollY);
         }
-        const currentDiv = document.body;
+        const currentDiv = headerRef.current;
         currentDiv?.addEventListener('mousemove', updateMouse);
         return () => {
             currentDiv?.removeEventListener('mousemove', updateMouse);
             stopCounter();
         };
-    }, [physics, stopCounter]);
+    }, [physics, stopCounter, headerRef]);
 
     return (
         <div className={styles.container} onMouseDown={startCounter} onMouseUp={stopCounter} onMouseLeave={stopCounter}>

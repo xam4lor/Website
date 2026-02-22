@@ -1,35 +1,17 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import styles from './navbar.module.css'
+import styles from './navbar.module.css';
+import { titleFont } from '../../fonts';
+import { useState } from 'react';
 
-export default function Navbar({small}: { small?: boolean }) {
+export default function Navbar() {
+    const [selectedId, setSelectedId] = useState(0);
     return <>
-        <nav className={styles.nav}>
-            <div className={styles.navbar}>
-                <div className={styles.logo}>
-                    <Link href="/">
-                        <Image src='/imgs/logo.png' alt="ExplorableScience logo" height={50} width={50} priority />
-                    </Link>
-                    <Link href="/" className={styles.explorablescience}>
-                        <p>ExplorableScience</p>
-                    </Link>
-                </div>
-
-                <div className={styles.links}>
-                    <Link href="/articles">
-                        <p>Articles</p>
-                    </Link>
-                    <Link href="/simulations">
-                        <p>Simulations</p>
-                    </Link>
-                    <Link href="/about">
-                        <p>About</p>
-                    </Link>
-                </div>
-            </div>
-
-            <div className={`${styles.navbarBackground} ${small ? styles.navbarBackgroundSmall : ''}`}>
-            </div>
+        <nav className={`${styles.navbar} ${titleFont.className}`}>
+            <ul className={styles.navbarContent}>
+                <li><a className={selectedId === 0 ? styles.active : ''} href="#articles" onClick={() => setSelectedId(0)}>About Me</a></li>
+                <li><a className={selectedId === 1 ? styles.active : ''} href="#projects" onClick={() => setSelectedId(1)}>Publications</a></li>
+                <li><a className={selectedId === 2 ? styles.active : ''} href="#cv" onClick={() => setSelectedId(2)}>CV</a></li>
+                <li><a className={selectedId === 3 ? styles.active : ''} href="#projects" onClick={() => setSelectedId(3)}>Projects</a></li>
+            </ul>
         </nav>
     </>
 }
