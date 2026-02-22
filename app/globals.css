@@ -23,9 +23,10 @@ ul {
 }
 
 :root {
-    --color-green: #4aa96e;
-    --color-background-light: #171f2d;
-    --color-background-dark: #0d0d0d;
+    --color-green: #39e0c1;
+    --color-green-hover: #2d9e84;
+    --color-background: #0d1419;
+    --color-text: #ffffff;
 }
 
 .colorNote {

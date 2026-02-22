@@ -37,19 +37,19 @@ class Simulation {
             x: Math.random() * width, y: Math.random() * height
         }});
         this.positions.push(this.mouse);
-        const maxVelocity = 60;
+        const maxVelocity = 20;
         this.velocities = new Array(2 * particlesCount).fill(0).map(() => {return {
             x: Math.random() * maxVelocity - maxVelocity / 2, y: Math.random() * maxVelocity - maxVelocity / 2
         }});
 
         // Set radius
-        const minRadius = 0.8;
-        const maxRadius = 3;
+        const minRadius = 0.1;
+        const maxRadius = 2;
         this.radius = new Array(particlesCount).fill(0).map(() => Math.random() * (maxRadius - minRadius) + minRadius);
 
         // Set alpha
-        const minAlpha = 0.1;
-        const maxAlpha = 0.4;
+        const minAlpha = 0.0;
+        const maxAlpha = 0.2;
         this.alpha = new Array(particlesCount).fill(0).map(() => Math.random() * (maxAlpha - minAlpha) + minAlpha);
 
         // Set links
@@ -147,7 +147,7 @@ class Simulation {
             // Draw particle
             context.beginPath();
             context.arc(position.x, position.y, radius, 0, 2 * Math.PI);
-            context.fillStyle = `rgba(120, 143, 185, ${this.alpha[i]})`;
+            context.fillStyle = `rgba(150, 173, 215, ${this.alpha[i]})`;
             context.fill();
         }
 
@@ -159,11 +159,11 @@ class Simulation {
             const dist = Math.sqrt((p0.x - p1.x) ** 2 + (p0.y - p1.y) ** 2);
 
             let d = 130;
-            let a = 0.7;
+            let a = 0.15;
             // If one particle is mouse, increase max distance and alpha
             if (link.p0Index === this.particlesCount-1 || link.p1Index === this.particlesCount-1) {
                 d = 200;
-                a = 0.9;
+                a = 0.3;
             }
             const formattedDist = Math.min(1, Math.max(0, dist / d));
             const alpha = a * (1 - formattedDist);
@@ -270,7 +270,7 @@ export default function HeaderAnimation({ small }: { small?: boolean }) {
         // Handle window resize
         const handleResize = () => {
             setWidth(window.document.body.clientWidth);
-            setHeight(window.innerHeight * (small ? 1.0 : 1.1));
+            setHeight(window.innerHeight);
         };
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
@@ -280,7 +280,7 @@ export default function HeaderAnimation({ small }: { small?: boolean }) {
     }, []);
 
     // Create simulation
-    const particlesCount = width < 600 ? 150 : 300;
+    const particlesCount = width < 600 ? 100 : 150;
     const physics = useMemo(
         () => new Simulation(particlesCount, width, height),
     [particlesCount, width, height]);

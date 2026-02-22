@@ -1,9 +1,9 @@
 'use client'
 
-import Header from './components/header/header'
+import Header from './(home)/header/header'
 import styles from './error.module.css'
 import { inter } from './fonts'
-import HeaderAnimation from './components/header/header_animation'
+import HeaderAnimation from './(home)/header/header_animation'
 
 export default function NotFound() {
     return <>
