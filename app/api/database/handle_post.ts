@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { CommentPayload, DataUserPayload, ErrorReportPayload } from '../data_types';
+import { DataUserPayload, ErrorReportPayload } from '../data_types';
 import { db } from './db';
 import crypto from 'crypto';
 

@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './header_animation.module.css'
-import { JSX, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { JSX, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import React from "react";
 import { ErrorBoundary } from 'react-error-boundary';
 import logger from '@/app/api/client/logger';
@@ -265,10 +265,19 @@ export default function HeaderAnimation({ small }: { small?: boolean }) {
     // Get window size
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
-    useEffect(() => {
-        setWidth(window.document.body.clientWidth);
-        setHeight(window.innerHeight * (small ? 1.0 : 1.1));
+
+    useLayoutEffect(() => {
+        // Handle window resize
+        const handleResize = () => {
+            setWidth(window.document.body.clientWidth);
+            setHeight(window.innerHeight * (small ? 1.0 : 1.1));
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, [small]);
+    useEffect(() => {
+        window.dispatchEvent(new Event('resize'));
+    }, []);
 
     // Create simulation
     const particlesCount = width < 600 ? 150 : 300;

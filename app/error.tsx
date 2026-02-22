@@ -5,7 +5,7 @@ import logger from "./api/client/logger";
 import Header from './components/header/header';
 import HeaderAnimation from './components/header/header_animation';
 
-export default function Error({ error, reset }: { error: Error & { digest?: string }, reset: () => void }) {
+export default function Error({ error }: { error: Error & { digest?: string }, reset: () => void }) {
     logger.error(error);
 
     return <>

@@ -19,14 +19,15 @@
         "rss": "^1.2.2"
     },
     "devDependencies": {
-        "@eslint/eslintrc": "^0.1",
+        "@eslint/eslintrc": "^3.3.3",
         "@tailwindcss/postcss": "^4",
+        "@types/eslint__eslintrc": "^2.1.2",
         "@types/node": "^20",
         "@types/react": "^19",
         "@types/react-dom": "^19",
         "@types/rss": "^0.0.32",
-        "eslint": "^10.0.1",
-        "eslint-config-next": "^0.2.4",
+        "eslint": "^9.39.3",
+        "eslint-config-next": "^16.1.6",
         "tailwindcss": "^4",
         "typescript": "^5"
     }
