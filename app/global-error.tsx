@@ -3,7 +3,6 @@
 import styles from './error.module.css'
 import logger from "./api/client/logger";
 import Header from './(home)/header/header';
-import HeaderAnimation from './(home)/header/header_animation';
 
 export default function GlobalError({ error }: { error: Error & { digest?: string }, reset: () => void }) {
     logger.error(error);
@@ -16,8 +15,6 @@ export default function GlobalError({ error }: { error: Error & { digest?: strin
             </head>
 
             <body>
-                <HeaderAnimation small />
-
                 <Header>
                     <div className={styles.content}>
                         <p>Something went wrong!</p>

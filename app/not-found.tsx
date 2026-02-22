@@ -3,12 +3,9 @@
 import Header from './(home)/header/header'
 import styles from './error.module.css'
 import { inter } from './fonts'
-import HeaderAnimation from './(home)/header/header_animation'
 
 export default function NotFound() {
     return <>
-        <HeaderAnimation small />
-
         <Header>
             <div className={`${styles.content} ${inter.className}`}>
                 <p>Oops! This page wasn&apos;t found.</p>
