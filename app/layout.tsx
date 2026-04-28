@@ -3,62 +3,68 @@ import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from "next";
 import styles from './layout.module.css'
 import { inter } from "./fonts.ts";
+// @ts-expect-error: side-effect CSS import lacks type declarations
 import "./globals.css";
 import Script from "next/script";
 import { CustomAnalytics } from './api/client/analytics.tsx';
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://mdherbecourt.dev"),
     title: {
-        template: '%s | Maxime Dherbécourt',
-        default: 'Maxime Dherbécourt Portfolio'
+        template: "%s | Maxime Dherbécourt",
+        default: "Maxime Dherbécourt",
     },
-    description: "Personal portfolio of Maxime Dherbécourt.",
+    description:
+        "PhD student in Physics at [University]. I work on [research area] and share interactive science explorations, publications, and open-source projects.",
     keywords: [
-        "portfolio", "maxime dherbecourt", "maxime dherbécourt", "dherbecourt", "mdherbecourt", "mdherbécourt",
-        "science", "physics", "educational", "explorable", "explorables", "explorable-explanations", "interactive", "article",
-        "articles", "simulation", "simulations", "learning", "research", "experiments", "visualization", "data", "technology"
+        "Maxime Dherbécourt", "mdherbecourt", "PhD", "PhD Physics", "physics", "physics research",
+        "portfolio", "scientific publications", "interactive science", "explorable explanations",
+        "simulation", "visualization", "open source", "research",
     ],
     authors: [{ name: "Maxime Dherbécourt", url: "https://mdherbecourt.dev" }],
     creator: "Maxime Dherbécourt",
     publisher: "Maxime Dherbécourt",
     category: "Science",
-    applicationName: "Maxime Dherbécourt Portfolio",
+    applicationName: "Maxime Dherbécourt",
+    icons: {
+        icon: "/imgs/favicon.ico",
+        shortcut: "/imgs/favicon.ico",
+    },
     openGraph: {
-        title: "Maxime Dherbécourt Portfolio",
-        description: "Personal portfolio of Maxime Dherbécourt.",
+        title: "Maxime Dherbécourt",
+        description:
+            "PhD student in Physics. Publications, projects, and interactive science explorations.",
         url: "https://mdherbecourt.dev/",
-        siteName: "Maxime Dherbécourt Portfolio",
+        siteName: "Maxime Dherbécourt",
         images: [
             {
-                url: "https://mdherbecourt.dev/imgs/og-image.png",
+                url: "/imgs/og-image.png",
                 width: 686,
                 height: 335,
-                alt: "Maxime Dherbécourt - Portfolio"
-            }
+                alt: "Maxime Dherbécourt – PhD student in Physics",
+            },
         ],
         locale: "en_US",
-        type: "website"
+        type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Maxime Dherbécourt Portfolio",
-        description: "Personal portfolio of Maxime Dherbécourt.",
-        site: "https://mdherbecourt.dev/",
+        title: "Maxime Dherbécourt",
+        description:
+            "PhD student in Physics. Publications, projects, and interactive science explorations.",
         creator: "@mdherbecourt",
-        images: [
-            "https://mdherbecourt.dev/imgs/og-image.png"
-        ]
+        images: ["/imgs/og-image.png"],
     },
-    robots: "index, follow",
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: { index: true, follow: true },
+    },
     alternates: {
         canonical: "https://mdherbecourt.dev/",
-        languages: {
-            "en-US": "https://mdherbecourt.dev/"
-        },
-        types: {
-            "application/rss+xml": "https://mdherbecourt.dev/feed.xml"
-        }
-    }
+        languages: { "en-US": "https://mdherbecourt.dev/" },
+        types: { "application/rss+xml": "https://mdherbecourt.dev/feed.xml" },
+    },
 };
 
 export default function RootLayout({

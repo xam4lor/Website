@@ -1,17 +1,45 @@
+'use client'
+
 import styles from './navbar.module.css';
 import { titleFont } from '../../fonts';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { navItems } from '../../data/nav';
+
+const DownloadIcon = () => (
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+        <polyline points="7,10 12,15 17,10" />
+        <line x1="12" y1="15" x2="12" y2="3" />
+    </svg>
+);
 
 export default function Navbar() {
-    const [selectedId, setSelectedId] = useState(0);
-    return <>
+    const pathname = usePathname();
+
+    const isActive = (item: typeof navItems[0]) =>
+        item.page !== null && pathname === item.page;
+
+    return (
         <nav className={`${styles.navbar} ${titleFont.className}`}>
             <ul className={styles.navbarContent}>
-                <li><a className={selectedId === 0 ? styles.active : ''} href="#articles" onClick={() => setSelectedId(0)}>About Me</a></li>
-                <li><a className={selectedId === 1 ? styles.active : ''} href="#projects" onClick={() => setSelectedId(1)}>Publications</a></li>
-                <li><a className={selectedId === 2 ? styles.active : ''} href="#cv" onClick={() => setSelectedId(2)}>CV</a></li>
-                <li><a className={selectedId === 3 ? styles.active : ''} href="#projects" onClick={() => setSelectedId(3)}>Projects</a></li>
+                {navItems.map((item, i) => (
+                    <li key={i}>
+                        <Link
+                            href={item.href}
+                            className={isActive(item) ? styles.active : ''}
+                        >
+                            {item.label}
+                        </Link>
+                    </li>
+                ))}
+                <li className={styles.cvItem}>
+                    <a href="/cv.pdf" download className={styles.cvButton}>
+                        <DownloadIcon />
+                        CV
+                    </a>
+                </li>
             </ul>
         </nav>
-    </>
+    );
 }

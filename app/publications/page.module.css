@@ -1,0 +1,173 @@
+.main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+    min-height: calc(100vh - 200px);
+}
+
+.hero {
+    padding-top: 110px;
+    padding-bottom: 52px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: 48px;
+}
+
+.back {
+    display: inline-block;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.35);
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    margin-bottom: 20px;
+    transition: color 0.2s;
+}
+
+.back:hover {
+    color: var(--color-green);
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin: 0 0 10px;
+    line-height: 1.1;
+}
+
+.dot {
+    color: var(--color-green);
+}
+
+.subtitle {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.42);
+    margin: 0;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.item:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.journalBadge {
+    flex-shrink: 0;
+    width: 72px;
+    padding: 5px 0;
+    text-align: center;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    border: 1px solid;
+    border-radius: 4px;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pubTitle {
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    line-height: 1.45;
+}
+
+.pubLink {
+    text-decoration: none;
+    color: white;
+    transition: color 0.2s;
+}
+
+.pubLink:hover {
+    color: var(--color-green);
+}
+
+.authors {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.48);
+    line-height: 1.4;
+}
+
+.year {
+    color: rgba(255, 255, 255, 0.28);
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.35);
+    margin-top: 2px;
+}
+
+.journal {
+    font-style: italic;
+}
+
+.details {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.doiLink {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--color-green);
+    text-decoration: none;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+    margin-left: 4px;
+}
+
+.doiLink:hover {
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .main {
+        padding: 0 20px 60px;
+    }
+
+    .hero {
+        padding-top: 90px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .journalBadge {
+        width: 56px;
+        font-size: 9.5px;
+    }
+
+    .item {
+        gap: 14px;
+    }
+}

@@ -1,19 +1,78 @@
-.content {
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 32px 60px;
     text-align: center;
-    font-size: 27px;
-    font-weight: 200;
-    margin: 35px 0;
 }
 
-.buttons {
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    margin: 0 auto;
+.code {
+    font-size: 108px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -4px;
+    color: var(--color-green);
+    opacity: 0.12;
+    margin-bottom: 4px;
+    font-variant-numeric: tabular-nums;
 }
-@media (max-width: 570px) {
-    .buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
+
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-bottom: 14px;
+}
+
+.dot {
+    color: var(--color-green);
+}
+
+.message {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.46);
+    line-height: 1.75;
+    max-width: 400px;
+    margin-bottom: 36px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.homeLink {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.42);
+    text-decoration: none;
+    letter-spacing: 0.2px;
+    transition: color 0.2s;
+}
+
+.homeLink:hover {
+    color: var(--color-green);
+}
+
+.retryButton {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--color-green);
+    background: rgba(57, 224, 193, 0.07);
+    border: 1px solid rgba(57, 224, 193, 0.28);
+    padding: 7px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+    letter-spacing: 0.2px;
+}
+
+.retryButton:hover {
+    background: rgba(57, 224, 193, 0.13);
+    border-color: rgba(57, 224, 193, 0.55);
 }

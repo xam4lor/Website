@@ -5,22 +5,23 @@
     width: 100%;
     z-index: 1000;
     color: white;
-    background: linear-gradient(to bottom, var(--color-background), var(--color-background) 90%, rgba(0, 0, 0, 0));
-    padding-bottom: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(to bottom, rgba(13, 20, 25, 0.98) 80%, rgba(13, 20, 25, 0));
+    padding-bottom: 8px;
 }
 
 .navbarContent {
-    justify-content: end;
-    align-items: center;
-    gap: 45px;
-    width: 90%;
-    max-width: 1600px;
-    font-size: 15px;
-    list-style: none;
     display: flex;
-    margin-top: 25px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 36px;
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-top: 22px;
+    font-size: 13.5px;
     font-weight: 400;
+    list-style: none;
+    padding: 0;
 }
 
 .navbarContent li {
@@ -31,34 +32,74 @@
 
 .navbarContent li a {
     text-decoration: none;
-    transition: color 0.2s ease
+    color: rgba(255, 255, 255, 0.72);
+    transition: color 0.2s;
+    white-space: nowrap;
 }
+
 .navbarContent li a::after {
     content: "";
-    background-color: transparent;
-    border-radius: 3px;
-    height: 2px;
     position: absolute;
-    bottom: -8px;
-    left: 0;
-    right: 0;
-    width: 130%;
-    margin-left: -15%;
-    transition: background-color 0.5s ease;
+    bottom: -6px;
+    left: -10%;
+    width: 120%;
+    height: 1.5px;
+    border-radius: 2px;
+    background-color: transparent;
+    transition: background-color 0.3s;
 }
 
 .navbarContent li a:hover {
-    color: var(--color-green);
+    color: white;
 }
+
+.navbarContent li a.active {
+    color: white;
+}
+
 .navbarContent li a.active::after {
-    content: "";
     background-color: var(--color-green);
-    border-radius: 3px;
-    height: 2px;
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    right: 0;
-    width: 130%;
-    margin-left: -15%;
+}
+
+.cvItem {
+    margin-left: 4px;
+}
+
+.cvButton {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--color-green) !important;
+    text-decoration: none;
+    border: 1px solid rgba(57, 224, 193, 0.28);
+    padding: 5px 13px;
+    border-radius: 20px;
+    transition: background-color 0.2s, border-color 0.2s;
+    letter-spacing: 0.2px;
+}
+
+.cvButton:hover {
+    background-color: rgba(57, 224, 193, 0.08);
+    border-color: rgba(57, 224, 193, 0.6);
+    color: var(--color-green) !important;
+}
+
+.cvButton::after {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    .navbarContent {
+        gap: 20px;
+        font-size: 12.5px;
+        margin-top: 18px;
+        width: 95%;
+    }
+
+    .cvButton {
+        padding: 4px 10px;
+        font-size: 11.5px;
+    }
 }

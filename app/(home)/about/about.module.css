@@ -1,0 +1,157 @@
+.section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 32px 60px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+
+.dot {
+    color: var(--color-green);
+}
+
+.intro {
+    font-size: 15px;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.68);
+    margin-bottom: 40px;
+    max-width: 800px;
+}
+
+.subtitle {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 18px;
+}
+
+.educationList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.educationItem {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.bullet {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--color-green);
+    flex-shrink: 0;
+    margin-top: 9px;
+    opacity: 0.7;
+}
+
+.educationContent {
+    flex: 1;
+}
+
+.educationHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.degree {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.period {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+    white-space: nowrap;
+    font-family: monospace;
+}
+
+.institution {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: 3px;
+}
+
+.description {
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.3);
+    margin-top: 4px;
+    font-style: italic;
+}
+
+.interests {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.interestLabel {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.25);
+    margin-right: 10px;
+}
+
+/* Highlighted words within text */
+.highlight {
+    color: var(--color-green);
+    font-weight: 600;
+}
+
+.interestsPanel {
+    margin-top: 34px;
+    padding: 22px 22px 24px;
+    border-radius: 18px;
+    border: 1px solid rgba(57, 224, 193, 0.18);
+    background: transparent;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.interestsHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.interestsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.interestChip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(57, 224, 193, 0.28);
+    background: linear-gradient(135deg, rgba(57, 224, 193, 0.04), rgba(57, 224, 193, 0.03)),
+        rgba(255, 255, 255, 0.03);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}

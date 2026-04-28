@@ -1,15 +1,50 @@
+import styles from './about.module.css';
+import { titleFont } from '../../fonts';
+import { education, researchInterests } from '../../data/education';
+
 export default function About() {
-    return <>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quis corporis vero ea aut voluptatum itaque nam neque pariatur, et quas hic, harum sint deserunt ipsam, veniam fuga necessitatibus ipsa! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit beatae quisquam ut impedit, dolore repellat maxime exercitationem eveniet totam omnis unde iusto quis in iste consequuntur voluptatem, placeat soluta rerum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis cupiditate voluptatum aspernatur praesentium libero, nemo et, fugiat sed ipsam alias ut consectetur cum enim doloribus molestias vel culpa eligendi cumque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quis corporis vero ea aut voluptatum itaque nam neque pariatur, et quas hic, harum sint deserunt ipsam, veniam fuga necessitatibus ipsa! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit beatae quisquam ut impedit, dolore repellat maxime exercitationem eveniet totam omnis unde iusto quis in iste consequuntur voluptatem, placeat soluta rerum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis cupiditate voluptatum aspernatur praesentium libero, nemo et, fugiat sed ipsam alias ut consectetur cum enim doloribus molestias vel culpa eligendi cumque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quis corporis vero ea aut voluptatum itaque nam neque pariatur, et quas hic, harum sint deserunt ipsam, veniam fuga necessitatibus ipsa! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit beatae quisquam ut impedit, dolore repellat maxime exercitationem eveniet totam omnis unde iusto quis in iste consequuntur voluptatem, placeat soluta rerum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis cupiditate voluptatum aspernatur praesentium libero, nemo et, fugiat sed ipsam alias ut consectetur cum enim doloribus molestias vel culpa eligendi cumque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quis corporis vero ea aut voluptatum itaque nam neque pariatur, et quas hic, harum sint deserunt ipsam, veniam fuga necessitatibus ipsa! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit beatae quisquam ut impedit, dolore repellat maxime exercitationem eveniet totam omnis unde iusto quis in iste consequuntur voluptatem, placeat soluta rerum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis cupiditate voluptatum aspernatur praesentium libero, nemo et, fugiat sed ipsam alias ut consectetur cum enim doloribus molestias vel culpa eligendi cumque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quis corporis vero ea aut voluptatum itaque nam neque pariatur, et quas hic, harum sint deserunt ipsam, veniam fuga necessitatibus ipsa! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit beatae quisquam ut impedit, dolore repellat maxime exercitationem eveniet totam omnis unde iusto quis in iste consequuntur voluptatem, placeat soluta rerum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis cupiditate voluptatum aspernatur praesentium libero, nemo et, fugiat sed ipsam alias ut consectetur cum enim doloribus molestias vel culpa eligendi cumque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quis corporis vero ea aut voluptatum itaque nam neque pariatur, et quas hic, harum sint deserunt ipsam, veniam fuga necessitatibus ipsa! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit beatae quisquam ut impedit, dolore repellat maxime exercitationem eveniet totam omnis unde iusto quis in iste consequuntur voluptatem, placeat soluta rerum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis cupiditate voluptatum aspernatur praesentium libero, nemo et, fugiat sed ipsam alias ut consectetur cum enim doloribus molestias vel culpa eligendi cumque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quis corporis vero ea aut voluptatum itaque nam neque pariatur, et quas hic, harum sint deserunt ipsam, veniam fuga necessitatibus ipsa! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit beatae quisquam ut impedit, dolore repellat maxime exercitationem eveniet totam omnis unde iusto quis in iste consequuntur voluptatem, placeat soluta rerum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis cupiditate voluptatum aspernatur praesentium libero, nemo et, fugiat sed ipsam alias ut consectetur cum enim doloribus molestias vel culpa eligendi cumque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quis corporis vero ea aut voluptatum itaque nam neque pariatur, et quas hic, harum sint deserunt ipsam, veniam fuga necessitatibus ipsa! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit beatae quisquam ut impedit, dolore repellat maxime exercitationem eveniet totam omnis unde iusto quis in iste consequuntur voluptatem, placeat soluta rerum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis cupiditate voluptatum aspernatur praesentium libero, nemo et, fugiat sed ipsam alias ut consectetur cum enim doloribus molestias vel culpa eligendi cumque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quis corporis vero ea aut voluptatum itaque nam neque pariatur, et quas hic, harum sint deserunt ipsam, veniam fuga necessitatibus ipsa! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit beatae quisquam ut impedit, dolore repellat maxime exercitationem eveniet totam omnis unde iusto quis in iste consequuntur voluptatem, placeat soluta rerum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis cupiditate voluptatum aspernatur praesentium libero, nemo et, fugiat sed ipsam alias ut consectetur cum enim doloribus molestias vel culpa eligendi cumque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quis corporis vero ea aut voluptatum itaque nam neque pariatur, et quas hic, harum sint deserunt ipsam, veniam fuga necessitatibus ipsa! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit beatae quisquam ut impedit, dolore repellat maxime exercitationem eveniet totam omnis unde iusto quis in iste consequuntur voluptatem, placeat soluta rerum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis cupiditate voluptatum aspernatur praesentium libero, nemo et, fugiat sed ipsam alias ut consectetur cum enim doloribus molestias vel culpa eligendi cumque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quis corporis vero ea aut voluptatum itaque nam neque pariatur, et quas hic, harum sint deserunt ipsam, veniam fuga necessitatibus ipsa! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit beatae quisquam ut impedit, dolore repellat maxime exercitationem eveniet totam omnis unde iusto quis in iste consequuntur voluptatem, placeat soluta rerum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis cupiditate voluptatum aspernatur praesentium libero, nemo et, fugiat sed ipsam alias ut consectetur cum enim doloribus molestias vel culpa eligendi cumque.</p>
-    </>
+    return (
+        <section id="about" className={styles.section}>
+            <h2 className={`${styles.title} ${titleFont.className}`}>
+                About Me<span className={styles.dot}>.</span>
+            </h2>
+            <p className={styles.intro}>
+                I'm a PhD student working at the interface between <span className={styles.highlight}>strong light-matter interactions</span> and <span className={styles.highlight}>condensed matter physics</span>.
+                I'm currently based at the <u><a href="https://www.ipcms.fr/" target="_blank" rel="noopener noreferrer">IPCMS laboratory</a></u> in Strasbourg, France.
+                Beyond research, I enjoy making science accessible through interactive <span className={styles.highlight}>explorations</span> and <span className={styles.highlight}>visual explanations</span>.
+            </p>
+
+            <h3 className={`${styles.subtitle} ${titleFont.className}`}>Education</h3>
+            <ul className={styles.educationList}>
+                {education.map((item, i) => (
+                    <li key={i} className={styles.educationItem}>
+                        <span className={styles.bullet} />
+                        <div className={styles.educationContent}>
+                            <div className={styles.educationHeader}>
+                                <span className={styles.degree}>{item.degree}</span>
+                                <span className={styles.period}>{item.period}</span>
+                            </div>
+                            <div className={styles.institution}>{item.institution} · {item.location}</div>
+                            {item.description && (
+                                <div className={styles.description}>{item.description}</div>
+                            )}
+                        </div>
+                    </li>
+                ))}
+            </ul>
+
+            <section className={styles.interestsPanel} aria-labelledby="research-interests-title">
+                <div className={styles.interestsHeader}>
+                    <span className={styles.interestLabel}>Research interests</span>
+                </div>
+                <div className={styles.interestsList}>
+                    {researchInterests.map((interest) => (
+                        <span key={interest} className={styles.interestChip}>
+                            {interest}
+                        </span>
+                    ))}
+                </div>
+            </section>
+        </section>
+    );
 }

@@ -1,23 +1,37 @@
 'use client'
 
-import styles from './error.module.css'
-import logger from "./api/client/logger";
-import Header from './(home)/header/header';
+import { useEffect } from 'react';
+import Link from 'next/link';
+import Navbar from './(home)/header/navbar';
+import styles from './error.module.css';
+import { titleFont, inter } from './fonts';
+import logger from './api/client/logger';
 
-export default function Error({ error }: { error: Error & { digest?: string }, reset: () => void }) {
-    logger.error(error);
+export default function Error({
+    error,
+    reset,
+}: {
+    error: Error & { digest?: string };
+    reset: () => void;
+}) {
+    useEffect(() => { logger.error(error); }, [error]);
 
-    return <>
-        <Header>
-            <div className={styles.content}>
-                <p>Something went wrong!</p>
+    return (
+        <>
+            <Navbar />
+            <div className={`${styles.page} ${inter.className}`}>
+                <p className={`${styles.code} ${titleFont.className}`}>500</p>
+                <h1 className={`${styles.title} ${titleFont.className}`}>
+                    Something went wrong<span className={styles.dot}>.</span>
+                </h1>
+                <p className={styles.message}>
+                    An unexpected error occurred. You can try reloading the page or head back to the homepage.
+                </p>
+                <div className={styles.actions}>
+                    <button onClick={reset} className={styles.retryButton}>Try again</button>
+                    <Link href="/" className={styles.homeLink}>← Back to portfolio</Link>
+                </div>
             </div>
-
-            <div className={styles.buttons}>
-                {/* <Button content='Go Home' link='/' size='standard' /> */}
-                <span style={{ display: 'inline', marginLeft: '40px' }} />
-                {/* <Button content='Try again' action={() => reset()} size='standard' /> */}
-            </div>
-        </Header>
-    </>
+        </>
+    );
 }

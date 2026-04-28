@@ -1,9 +1,12 @@
 .header {
     width: 100%;
-    height: 80vh;
-    max-height: 400px;
+    min-height: 170px;
+    min-height: 40vh;
+    padding-bottom: 20px;
     background: var(--color-background);
     color: var(--color-text);
+    position: relative;
+    overflow: hidden;
 }
 
 .headerContent {
@@ -11,50 +14,167 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    gap: 6%;
+    min-height: 40vh;
     z-index: 10;
     position: relative;
-    margin-top: 100px;
+    padding-top: 35px;
+    padding-bottom: 10px;
 }
+
 .headerContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 6%;
+    gap: 20px;
 }
 
 .profilePicture {
-    width: 160px;
-    height: 160px;
-    align-content: center;
+    margin: 0 6px 0px 0;
 }
+
 .profilePicture img {
-    width: 120px;
-    height: 120px;
+    display: block;
+    width: 148px;
+    height: 148px;
     object-fit: cover;
-    border-radius: 5%;
-    border: 2px solid var(--color-green);
-    background: var(--color-green);
-    transition: border-color 0.3s, background 0.3s, width 0.3s, height 0.3s, transform 0.3s;
-    scale: 1.1;
+    border-radius: 50%;
+    border: 2px solid rgba(57, 224, 193, 0.5);
+    box-shadow: 0 0 28px rgba(57, 224, 193, 0.08), 0 6px 24px rgba(0, 0, 0, 0.45);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.profilePicture img:hover {
+    border-color: var(--color-green);
+    box-shadow: 0 0 36px rgba(57, 224, 193, 0.2), 0 6px 24px rgba(0, 0, 0, 0.45);
+}
+
+.headerText {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
 }
 
 .headerText h1 {
-    font-size: 34px;
+    font-size: 38px;
     font-weight: 700;
-    letter-spacing: 1.1px;
-}
-.headerText h2 {
-    width: max-content;
-    letter-spacing: 1.1px;
-    margin-top: 0px;
-    font-size: 24px;
-    font-weight: 400;
+    letter-spacing: 0.3px;
+    margin: 0;
+    line-height: 1.1;
 }
 
-.scrollDown {
-    position: absolute;
-    bottom: 20%;
+.dot {
+    color: var(--color-green);
+}
+
+.headerText h2 {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.52);
+    margin: 0;
+    letter-spacing: 0.6px;
+}
+
+.meta {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.28);
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+.emailButton {
+    width: -moz-fit-content;
+    width: fit-content;
+    color: var(--color-text) #fff;
+    background: linear-gradient(135deg, rgba(57, 224, 193, .05), rgba(57, 224, 193, .02));
+    border: 1px solid rgba(57, 224, 193, .2);
+    border-radius: 999px;
+    align-items: center;
+    gap: 10px;
+    margin-top: 11px;
+    margin-left: 8px;
+    padding: 4px 14px;
+    text-decoration: none;
+    transition: transform .22s, border-color .22s, background .22s, box-shadow .22s;
+    display: inline-flex;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .18), inset 0 1px rgba(255, 255, 255, .04);
+}
+
+.emailButton:hover {
+    transform: translateY(-1px);
+    border-color: rgba(57, 224, 193, 0.42);
+    background: linear-gradient(135deg, rgba(57, 224, 193, 0.18), rgba(57, 224, 193, 0.08));
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24), 0 0 0 1px rgba(57, 224, 193, 0.06);
+}
+
+.emailIcon {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(57, 224, 193, 0.12);
+    color: var(--color-green);
+    flex: 0 0 auto;
+}
+
+.emailText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1px;
+    min-width: 0;
+}
+
+.emailLabel {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.emailAddress {
+    font-size: 13px;
+    letter-spacing: 0.2px;
+    color: rgba(255, 255, 255, 0.92);
+    white-space: nowrap;
+}
+
+@media (max-width: 540px) {
+    .headerContainer {
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+    }
+
+    .headerText h1 {
+        font-size: 28px;
+    }
+
+    .headerText h2 {
+        font-size: 15px;
+    }
+
+    .meta {
+        font-size: 12px;
+    }
+
+    .profilePicture img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .emailButton {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 12px;
+        gap: 8px;
+    }
+
+    .emailText {
+        align-items: center;
+    }
+
+    .emailAddress {
+        font-size: 12px;
+    }
 }

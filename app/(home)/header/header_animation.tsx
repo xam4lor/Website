@@ -107,6 +107,7 @@ class Simulation {
             position.y += velocity.y * dt;
 
             // Add mouse repulsion
+            if (mouse.x === -1000 && mouse.y === -1000) continue;
             const mouseDist = Math.min(Math.sqrt((position.x - mouse.x) ** 2 + (position.y - mouse.y) ** 2), 300);
             if (mouseDist < 0.1 * this.width) {
                 const mouseAngle = Math.atan2(position.y - mouse.y, position.x - mouse.x);
@@ -232,7 +233,7 @@ function Canvas(props: { width: number, height: number, instance: CanvasElement,
         const render = () => {
             // Calculate delta time
             const time = new Date().getTime();
-            const dt = (time - lastTime) / 1000;
+            const dt = Math.min((time - lastTime) / 1000, 0.05);
             lastTime = time;
 
             // Clear context
@@ -269,19 +270,28 @@ export default function HeaderAnimation({ headerRef }: { headerRef: React.RefObj
     useEffect(() => {
         const updateSize = () => {
             const currentRef = headerRef.current;
-            console.log("Updating size", currentRef);
             if (!currentRef) return;
-            console.log("Updating size", currentRef.offsetWidth, currentRef.offsetHeight);
-            setWidth(currentRef.offsetWidth);
-            setHeight(currentRef.offsetHeight * 1.15);
+            const nextWidth = currentRef.offsetWidth;
+            const nextHeight = currentRef.offsetHeight * 1.15;
+            if (nextWidth <= 0 || nextHeight <= 0) return;
+            setWidth(nextWidth);
+            setHeight(nextHeight);
         }
+
         updateSize();
-        window.addEventListener('resize', updateSize);
-        return () => window.removeEventListener('resize', updateSize);
+        const currentRef = headerRef.current;
+        if (!currentRef || typeof ResizeObserver === 'undefined') {
+            window.addEventListener('resize', updateSize);
+            return () => window.removeEventListener('resize', updateSize);
+        }
+
+        const observer = new ResizeObserver(updateSize);
+        observer.observe(currentRef);
+        return () => observer.disconnect();
     }, [headerRef]);
 
     // Create simulation
-    const particlesCount = width < 600 ? 100 : 150;
+    const particlesCount = width < 600 ? 150 : 250;
     const physics = useMemo(
         () => new Simulation(particlesCount, width, height),
     [particlesCount, width, height]);
@@ -305,18 +315,32 @@ export default function HeaderAnimation({ headerRef }: { headerRef: React.RefObj
     // Get mouse position
     useEffect(() => {
         const updateMouse = (event: MouseEvent) => {
-            physics.setMouse(event.clientX, event.clientY + window.scrollY);
+            const currentRef = headerRef.current;
+            if (!currentRef) return;
+            const bounds = currentRef.getBoundingClientRect();
+            physics.setMouse(event.clientX - bounds.left, event.clientY - bounds.top);
         }
         const currentDiv = headerRef.current;
         currentDiv?.addEventListener('mousemove', updateMouse);
         return () => {
             currentDiv?.removeEventListener('mousemove', updateMouse);
             stopCounter();
+            // When the cursor leaves the header, clear the simulation mouse
+            physics.setMouse(-1000, -1000);
         };
     }, [physics, stopCounter, headerRef]);
 
     return (
-        <div className={styles.container} onMouseDown={startCounter} onMouseUp={stopCounter} onMouseLeave={stopCounter}>
+        <div
+            className={styles.container}
+            onMouseDown={startCounter}
+            onMouseUp={stopCounter}
+            onMouseLeave={() => {
+                stopCounter();
+                // Ensure particles don't attract to the last mouse position when pointer leaves
+                physics.setMouse(-1000, -1000);
+            }}
+        >
             <Canvas width={width} height={height} instance={physics} />
         </div>
     )
