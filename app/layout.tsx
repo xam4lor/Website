@@ -3,7 +3,6 @@ import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from "next";
 import styles from './layout.module.css'
 import { inter } from "./fonts.ts";
-// @ts-expect-error: side-effect CSS import lacks type declarations
 import "./globals.css";
 import Script from "next/script";
 import { CustomAnalytics } from './api/client/analytics.tsx';
