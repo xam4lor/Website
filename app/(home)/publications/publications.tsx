@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from './publications.module.css';
+import { FadeImage } from '../../ui/fade-image';
 import { titleFont } from '../../fonts';
 import { publications, getJournalColor, getJournalAbbr } from '../../data/publications';
 
@@ -11,7 +11,7 @@ function PaperThumb({ src, alt }: { src?: string; alt: string }) {
     if (src) {
         return (
             <div className={styles.thumb}>
-                <Image src={src} alt={alt} fill style={{ objectFit: 'cover' }} />
+                <FadeImage src={src} alt={alt} fill style={{ objectFit: 'cover' }} />
             </div>
         );
     }

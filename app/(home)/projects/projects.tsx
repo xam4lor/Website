@@ -1,9 +1,9 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from './projects.module.css';
 import { titleFont } from '../../fonts';
 import { projects } from '../../data/projects';
 import { ProjectIcon } from '../../ui/project-icon';
+import { FadeImage } from '../../ui/fade-image';
 
 const PREVIEW_COUNT = 4;
 const githubLink = "https://github.com/xam4lor";
@@ -20,7 +20,7 @@ function ProjectCard({ project, revealDelay }: { project: typeof projects[0]; re
         >
             <div className={styles.cardImage}>
                 {project.image ? (
-                    <Image src={project.image} alt={project.name} fill style={{ objectFit: 'cover' }} />
+                    <FadeImage src={project.image} alt={project.name} fill style={{ objectFit: 'cover' }} />
                 ) : (
                     <div className={styles.imagePlaceholder}>
                         <span className={styles.placeholderIcon}>
