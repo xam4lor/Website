@@ -37,7 +37,7 @@ const socialLinks = [
 
 export default function Footer() {
     return (
-        <footer className={styles.footer}>
+        <footer className={styles.footer} data-reveal>
             <div className={styles.container}>
                 <div className={styles.left}>
                     <span className={`${styles.name} ${titleFont.className}`}>Maxime Dherbécourt</span>

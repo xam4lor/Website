@@ -1,4 +1,4 @@
-export type IconType = 'flask' | 'globe' | 'code' | 'book';
+export type IconType = 'flask' | 'code' | 'globe' | 'book';
 
 export type Project = {
     name: string;
@@ -11,31 +11,35 @@ export type Project = {
 
 export const projects: Project[] = [
     {
-        name: "Project Alpha",
-        description: "An interactive simulation of [physics phenomenon] built with WebGL. Explore [what users can explore] through real-time visualizations and hands-on controls.",
-        link: "https://github.com/mdherbecourt/project-alpha",
-        iconType: "flask",
-        tags: ["WebGL", "Physics", "Interactive"],
-    },
-    {
-        name: "Project Beta",
-        description: "A web-based tool for [purpose]. Features [key features]. Built for [target audience] to simplify [workflow or task].",
-        link: "https://mdherbecourt.dev/project-beta",
+        name: "Explorable Science",
+        description: "Explorable visual articles and interactive simulations on various scientific topics such as phase transitions, general relativity, quantum mechanics and more.",
+        link: "https://explorablescience.com",
         iconType: "globe",
-        tags: ["Next.js", "TypeScript"],
+        tags: ["Science Communication", "Interactive Simulations", "Explorables"],
+        image: "/projects/explorablescience.png",
     },
     {
-        name: "Project Gamma",
-        description: "Open-source library for [purpose] written in [language]. Designed to [what it solves], with a minimal API and thorough documentation.",
-        link: "https://github.com/mdherbecourt/project-gamma",
+        name: "WaterDropEngine",
+        description: "A high-performance, ECS driven and Vulkan based game engine written in Rust. Designed for flexibility and speed, with a focus on 3D game development.",
+        link: "https://github.com/explorablescience/WaterDropEngine",
         iconType: "code",
-        tags: ["Python", "Open Source", "Library"],
+        tags: ["Rust", "Game Engine", "Vulkan", "WebGPU"],
+        image: "/projects/waterdropengine.png",
     },
     {
-        name: "Project Delta",
-        description: "Educational resources, lecture notes, and interactive examples on [topic]. Aimed at making [subject] accessible to a broader audience.",
-        link: "https://github.com/mdherbecourt/project-delta",
-        iconType: "book",
-        tags: ["Education", "Physics", "Outreach"],
+        name: "Physics Simulation Engine",
+        description: "A high-level JavaScript library for creating interactive physics simulations in the browser built on top of the canvas API.",
+        link: "https://github.com/explorablescience/PhysicsSimulationEngine",
+        iconType: "flask",
+        tags: ["JavaScript", "Physics Simulation", "Educational", "Interactive Science"],
+        image: "/projects/physics-simulation-engine.png",
     },
+    {
+        name: "Portfolio Website",
+        description: "The source code for this portfolio website, built with Next.js, TypeScript, Tailwind CSS and Vercel. It features a clean and modern design, showcasing my projects and skills.",
+        link: "https://github.com/xam4lor/Website",
+        iconType: "globe",
+        tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "React"],
+        image: "/projects/portfolio-website.png",
+    }
 ];

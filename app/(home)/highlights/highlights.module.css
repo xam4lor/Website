@@ -77,6 +77,19 @@
     line-height: 1.4;
 }
 
+.itemLink {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba(57, 224, 193, 0.35);
+    text-underline-offset: 3px;
+    transition: color 0.2s, text-decoration-color 0.2s;
+}
+
+.itemLink:hover {
+    color: white;
+    text-decoration-color: var(--color-green);
+}
+
 .itemMeta {
     display: flex;
     align-items: center;

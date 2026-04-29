@@ -32,7 +32,7 @@ export default function Publications() {
 
     return (
         <section id="publications" className={styles.section}>
-            <h2 className={`${styles.title} ${titleFont.className}`}>
+            <h2 className={`${styles.title} ${titleFont.className}`} data-reveal>
                 Selected Publications<span className={styles.dot}>.</span>
             </h2>
             <ol className={styles.list}>
@@ -40,7 +40,12 @@ export default function Publications() {
                     const color = getJournalColor(pub.journal);
                     const abbr = getJournalAbbr(pub.journal);
                     return (
-                        <li key={i} className={styles.item}>
+                        <li
+                            key={i}
+                            className={styles.item}
+                            data-reveal
+                            style={{ '--reveal-delay': `${60 + i * 90}ms` } as React.CSSProperties}
+                        >
                             <div className={styles.itemMain}>
                                 <div
                                     className={styles.journalBadge}
@@ -71,7 +76,7 @@ export default function Publications() {
                     );
                 })}
             </ol>
-            <div className={styles.footer}>
+            <div className={styles.footer} data-reveal style={{ '--reveal-delay': `${60 + PREVIEW_COUNT * 90}ms` } as React.CSSProperties}>
                 <a href={scholarLink} target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
                     Google Scholar ↗
                 </a>

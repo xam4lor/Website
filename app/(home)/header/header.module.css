@@ -1,3 +1,27 @@
+@keyframes profile-enter {
+    from {
+        opacity: 0;
+        transform: scale(0.76);
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px);
+    }
+}
+
+@keyframes slide-left {
+    from {
+        opacity: 0;
+        transform: translateX(-22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 .header {
     width: 100%;
     min-height: 170px;
@@ -30,6 +54,7 @@
 
 .profilePicture {
     margin: 0 6px 0px 0;
+    animation: profile-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
 
 .profilePicture img {
@@ -60,6 +85,7 @@
     letter-spacing: 0.3px;
     margin: 0;
     line-height: 1.1;
+    animation: slide-left 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
 }
 
 .dot {
@@ -72,6 +98,7 @@
     color: rgba(255, 255, 255, 0.52);
     margin: 0;
     letter-spacing: 0.6px;
+    animation: slide-left 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both;
 }
 
 .meta {
@@ -79,6 +106,7 @@
     color: rgba(255, 255, 255, 0.28);
     margin: 0;
     letter-spacing: 0.3px;
+    animation: slide-left 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
 }
 
 .emailButton {
@@ -97,6 +125,7 @@
     transition: transform .22s, border-color .22s, background .22s, box-shadow .22s;
     display: inline-flex;
     box-shadow: 0 10px 30px rgba(0, 0, 0, .18), inset 0 1px rgba(255, 255, 255, .04);
+    animation: slide-left 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.48s both;
 }
 
 .emailButton:hover {

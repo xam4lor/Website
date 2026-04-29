@@ -62,6 +62,28 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.055);
 }
 
+.thumb {
+    flex-shrink: 0;
+    width: 80px;
+    height: 62px;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    align-self: center;
+}
+
+.thumbPlaceholder {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.1);
+}
+
 .item:first-child {
     border-top: 1px solid rgba(255, 255, 255, 0.055);
 }
@@ -169,5 +191,9 @@
 
     .item {
         gap: 14px;
+    }
+
+    .thumb {
+        display: none;
     }
 }

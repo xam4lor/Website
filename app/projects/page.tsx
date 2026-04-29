@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '../(home)/header/navbar';
 import Footer from '../(home)/footer/footer';
@@ -48,12 +49,31 @@ export default function ProjectsPage() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={styles.item}
+                                data-reveal
+                                style={{ '--reveal-delay': `${i * 60}ms` } as React.CSSProperties}
                             >
-                                <div className={styles.itemIcon}>
-                                    <ProjectIcon type={project.iconType} size={20} />
+                                <div className={styles.itemImage}>
+                                    {project.image ? (
+                                        <Image
+                                            src={project.image}
+                                            alt={project.name}
+                                            fill
+                                            className={styles.itemImageImg}
+                                            style={{ objectFit: 'cover' }}
+                                        />
+                                    ) : (
+                                        <div className={styles.imagePlaceholder}>
+                                            <span className={styles.placeholderIcon}>
+                                                <ProjectIcon type={project.iconType} size={20} />
+                                            </span>
+                                        </div>
+                                    )}
                                 </div>
-                                <div className={styles.itemContent}>
+                                <div className={styles.itemBody}>
                                     <div className={styles.itemHeader}>
+                                        <span className={styles.itemIcon}>
+                                            <ProjectIcon type={project.iconType} size={15} />
+                                        </span>
                                         <span className={`${styles.itemName} ${titleFont.className}`}>{project.name}</span>
                                         <span className={styles.itemArrow}>↗</span>
                                     </div>

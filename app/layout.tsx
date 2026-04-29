@@ -6,6 +6,7 @@ import { inter } from "./fonts.ts";
 import "./globals.css";
 import Script from "next/script";
 import { CustomAnalytics } from './api/client/analytics.tsx';
+import { RevealObserver } from './ui/reveal-observer';
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://mdherbecourt.dev"),
@@ -91,6 +92,7 @@ export default function RootLayout({
             <body className={styles.body}>
                 {children}
 
+                <RevealObserver />
                 <CustomAnalytics />
                 <Analytics />
                 <SpeedInsights />

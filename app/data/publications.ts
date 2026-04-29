@@ -16,6 +16,7 @@ export const publications: Publication[] = [
         journal: "arXiv",
         details: "arXiv:2511.01723",
         link: "https://arxiv.org/abs/2511.01723v1",
+        image: "/publications/2026_raman.png",
     },
     {
         authors: "D. Kim, M. Dherbécourt, et al.",
@@ -24,6 +25,7 @@ export const publications: Publication[] = [
         journal: "Journal of Chemical Physics",
         details: "vol. 164, 104201",
         link: "https://doi.org/10.1063/5.0313120",
+        image: "/publications/2026_symmetry.png",
     }
 ];
 

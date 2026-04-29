@@ -1,3 +1,8 @@
+@keyframes slide-down {
+    from { opacity: 0; transform: translateY(-110%); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
 .navbar {
     position: fixed;
     top: 0;
@@ -7,6 +12,17 @@
     color: white;
     background: linear-gradient(to bottom, rgba(13, 20, 25, 0.98) 80%, rgba(13, 20, 25, 0));
     padding-bottom: 8px;
+    animation: slide-down 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.navbarWrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-top: 22px;
 }
 
 .navbarContent {
@@ -14,14 +30,11 @@
     justify-content: flex-end;
     align-items: center;
     gap: 36px;
-    width: 90%;
-    max-width: 1400px;
-    margin: 0 auto;
-    margin-top: 22px;
     font-size: 13.5px;
     font-weight: 400;
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .navbarContent li {
@@ -90,16 +103,117 @@
     display: none !important;
 }
 
-@media (max-width: 600px) {
-    .navbarContent {
-        gap: 20px;
-        font-size: 12.5px;
-        margin-top: 18px;
-        width: 95%;
+/* Hamburger button — hidden on desktop */
+.menuButton {
+    display: none;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    padding: 4px;
+    line-height: 0;
+    transition: color 0.2s;
+}
+
+.menuButton:hover {
+    color: white;
+}
+
+/* Mobile dropdown — always in DOM for animation, hidden on desktop */
+.mobileMenu {
+    display: none;
+    overflow: hidden;
+    max-height: 0;
+    background: rgba(13, 20, 25, 0.98);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    transition: max-height 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mobileMenuOpen {
+    max-height: 400px;
+}
+
+.mobileMenuContent {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 6px 0 14px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.mobileMenuContent li {
+    list-style: none;
+}
+
+.mobileMenuContent li a {
+    display: block;
+    padding: 11px 2px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: color 0.2s, padding-left 0.2s;
+    position: relative;
+}
+
+.mobileMenuContent li:last-child a {
+    border-bottom: none;
+}
+
+.mobileMenuContent li a:hover {
+    color: white;
+    padding-left: 6px;
+}
+
+.mobileMenuContent li a.active {
+    color: white;
+    padding-left: 6px;
+    border-left: 2px solid var(--color-green);
+}
+
+.cvButtonMobile {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-green) !important;
+    text-decoration: none;
+    border: 1px solid rgba(57, 224, 193, 0.28);
+    padding: 7px 16px;
+    border-radius: 20px;
+    transition: background-color 0.2s, border-color 0.2s;
+    letter-spacing: 0.2px;
+}
+
+.cvButtonMobile:hover {
+    background-color: rgba(57, 224, 193, 0.08);
+    border-color: rgba(57, 224, 193, 0.6);
+}
+
+@media (max-width: 560px) {
+    .navbarWrapper {
+        width: 92%;
+        margin-top: 16px;
     }
 
-    .cvButton {
-        padding: 4px 10px;
-        font-size: 11.5px;
+    .navbarContent {
+        display: none;
+    }
+
+    .menuButton {
+        display: flex;
+    }
+
+    .mobileMenu {
+        display: block;
+    }
+
+    .navbar {
+        padding-bottom: 0;
+        background: rgba(13, 20, 25, 0.98);
     }
 }

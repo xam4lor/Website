@@ -3,6 +3,7 @@ export type EngagementItem = {
     description: string;
     venue?: string;
     period: string;
+    href?: string;
 };
 
 export type EngagementCategory = {
@@ -12,35 +13,27 @@ export type EngagementCategory = {
 
 export const engagements: EngagementCategory[] = [
     {
-        name: "Conferences",
-        items: [
-            { role: "Talk",   description: '"Your Talk Title"',   venue: "Conference Name, City", period: "2024" },
-            { role: "Poster", description: '"Your Poster Title"', venue: "Conference Name, City", period: "2023" },
-        ],
-    },
-    {
         name: "Teaching",
         items: [
-            { role: "Lecture", description: "Lecture Topic or Course Title", venue: "Institution Name", period: "2024" },
-        ],
+            { role: "Lecturer", description: "Electromagnetism 1", venue: "Université de Strasbourg – General Science License", period: "2024 – 2026" },
+            { role: "Assistant", description: "French Physicists' Tournament", venue: "Université de Strasbourg – Master of Physics", period: "2024 – 2026" }
+        ]
     },
     {
-        name: "Awards",
+        name: "Initiatives",
         items: [
-            { role: "Prize", description: "Prize Name for Popularization Article", venue: "Awarding Organization", period: "2023" },
-        ],
+            { role: "Organizer", description: "French Physicists' Tournament", venue: "Young Researcher Network – Société Française de Physique", period: "2025 – Now", href: "https://france.iptnet.info" },
+            { role: "Prize Winner", description: "Winner of a science popularization contest", venue: "Summer of Math Exposition – The Science of Complexity", period: "2025", href: "https://some.3b1b.co/entries/b8300cb6-9de1-44d4-ac2a-fd1ca5b20819" },
+            { role: "Participant", description: "Scientific Game Jam on my PhD project", venue: 'Strasbourg – Created game "Molec\' Adventure"', period: "2025", href: "https://scientificgamejam.org" },
+        ]
     },
     {
-        name: "Reviewing",
+        name: "Presentations",
         items: [
-            { role: "Reviewer", description: "Physical Review Letters", venue: "American Physical Society", period: "2023 – present" },
-            { role: "Reviewer", description: "Physical Review A",       venue: "American Physical Society", period: "2024 – present" },
-        ],
-    },
-    {
-        name: "Outreach",
-        items: [
-            { role: "Organizer", description: "Public Challenge Name", venue: "Association Name", period: "2022" },
-        ],
-    },
+            { role: "Poster", description: '"Spontaneous Raman Scattering Under Vibrational Strong Coupling : The critical role of polariton spatial mode coherence"', venue: "Computational Physics Spring School, Les Houches, France", period: "2026" },
+            { role: "Talk", description: '"Raman Scattering in the Vibrational Strong Coupling Regime"', venue: "European Materials Research Society Conference, Strasbourg, France", period: "2026" },
+            { role: "Talk", description: '"Raman Scattering in the Vibrational Strong Coupling Regime"', venue: "Namasute Workshop, Odense, Denmark", period: "2026" },
+            { role: "Meeting", description: '"Spontaneous Raman scattering under Vibrational Strong Coupling : The critical role of polariton spatial mode coherence"', venue: "ℏ-Meeting, Strasbourg, France", period: "2025" },
+        ]
+    }
 ];

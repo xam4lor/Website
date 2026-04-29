@@ -8,9 +8,16 @@ import { ProjectIcon } from '../../ui/project-icon';
 const PREVIEW_COUNT = 4;
 const githubLink = "https://github.com/xam4lor";
 
-function ProjectCard({ project }: { project: typeof projects[0] }) {
+function ProjectCard({ project, revealDelay }: { project: typeof projects[0]; revealDelay: number }) {
     return (
-        <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.card}>
+        <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.card}
+            data-reveal
+            style={{ '--reveal-delay': `${revealDelay}ms` } as React.CSSProperties}
+        >
             <div className={styles.cardImage}>
                 {project.image ? (
                     <Image src={project.image} alt={project.name} fill style={{ objectFit: 'cover' }} />
@@ -41,15 +48,15 @@ export default function Projects() {
 
     return (
         <section id="projects" className={styles.section}>
-            <h2 className={`${styles.title} ${titleFont.className}`}>
-                Projects<span className={styles.dot}>.</span>
+            <h2 className={`${styles.title} ${titleFont.className}`} data-reveal>
+                Personal Projects<span className={styles.dot}>.</span>
             </h2>
             <div className={styles.grid}>
                 {preview.map((project, i) => (
-                    <ProjectCard key={i} project={project} />
+                    <ProjectCard key={i} project={project} revealDelay={60 + i * 70} />
                 ))}
             </div>
-            <div className={styles.footer}>
+            <div className={styles.footer} data-reveal style={{ '--reveal-delay': `${60 + PREVIEW_COUNT * 70}ms` } as React.CSSProperties}>
                 <a href={githubLink} target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
                     GitHub ↗
                 </a>

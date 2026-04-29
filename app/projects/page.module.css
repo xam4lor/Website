@@ -56,38 +56,70 @@
 
 .item {
     display: flex;
-    align-items: flex-start;
-    gap: 18px;
-    padding: 22px 24px;
+    flex-direction: column;
     border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 8px;
+    border-radius: 10px;
     text-decoration: none;
     color: white;
+    overflow: hidden;
     transition: border-color 0.2s, background-color 0.2s;
 }
 
 .item:hover {
     border-color: rgba(57, 224, 193, 0.28);
-    background-color: rgba(57, 224, 193, 0.025);
+    background-color: rgba(57, 224, 193, 0.018);
 }
 
-.itemIcon {
-    color: var(--color-green);
+.itemImage {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
     flex-shrink: 0;
-    margin-top: 2px;
-    opacity: 0.8;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.itemContent {
+.itemImageImg {
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.item:hover .itemImageImg {
+    transform: scale(1.03);
+}
+
+.imagePlaceholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, rgba(57, 224, 193, 0.04) 0%, rgba(13, 20, 25, 0.9) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholderIcon {
+    color: rgba(57, 224, 193, 0.2);
+    transform: scale(3.5);
+}
+
+.itemBody {
+    padding: 18px 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     flex: 1;
-    min-width: 0;
 }
 
 .itemHeader {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
+    gap: 9px;
+}
+
+.itemIcon {
+    color: var(--color-green);
+    flex-shrink: 0;
+    opacity: 0.75;
+    display: flex;
 }
 
 .itemName {
@@ -109,16 +141,17 @@
 }
 
 .itemDesc {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.55);
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.52);
     line-height: 1.65;
-    margin: 0 0 12px;
+    margin: 0;
 }
 
 .tags {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+    margin-top: 2px;
 }
 
 .tag {
@@ -145,8 +178,11 @@
         font-size: 28px;
     }
 
-    .item {
-        padding: 16px 18px;
-        gap: 14px;
+    .itemImage {
+        height: 160px;
+    }
+
+    .itemBody {
+        padding: 14px 16px 16px;
     }
 }
