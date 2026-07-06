@@ -6,7 +6,8 @@
         "dev": "next dev --turbopack",
         "build": "next build --turbopack",
         "start": "next start",
-        "lint": "eslint"
+        "lint": "eslint",
+        "cv:pdf": "tsx scripts/cv/generate.tsx"
     },
     "dependencies": {
         "@vercel/analytics": "^1.5.0",
@@ -20,15 +21,17 @@
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3.3.3",
+        "@react-pdf/renderer": "^4.5.1",
         "@tailwindcss/postcss": "^4",
         "@types/eslint__eslintrc": "^2.1.2",
-        "@types/node": "^20",
+        "@types/node": "^20.19.43",
         "@types/react": "^19",
         "@types/react-dom": "^19",
         "@types/rss": "^0.0.32",
         "eslint": "^9.39.3",
         "eslint-config-next": "^16.1.6",
         "tailwindcss": "^4",
+        "tsx": "^4.23.0",
         "typescript": "^5"
     }
 }
