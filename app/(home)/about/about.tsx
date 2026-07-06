@@ -9,9 +9,9 @@ export default function About() {
                 About Me<span className={styles.dot}>.</span>
             </h2>
             <p className={styles.intro} data-reveal style={{ '--reveal-delay': '80ms' } as React.CSSProperties}>
-                I'm a PhD student working at the interface between <span className={styles.highlight}>strong light-matter interactions</span> and <span className={styles.highlight}>condensed matter physics</span>.
-                I'm currently based at the <u><a href="https://www.ipcms.fr/" target="_blank" rel="noopener noreferrer">IPCMS laboratory</a></u> in Strasbourg, France.
-                Beyond research, I enjoy making science accessible through interactive <span className={styles.highlight}>explorations</span> and <span className={styles.highlight}>visual explanations</span>.
+                I'm a PhD student working on <span className={styles.highlight}>strong light-matter coupling</span>, and its effects on multiple physical phenomena, including <span className={styles.highlight}>Raman scattering</span> and <span className={styles.highlight}>transport properties</span>.
+                I'm based at the <u><a href="https://www.ipcms.fr/" target="_blank" rel="noopener noreferrer">IPCMS laboratory</a></u> in Strasbourg, France.
+                Beyond research, I enjoy teaching and making science accessible through interactive <span className={styles.highlight}>explorations</span> and <span className={styles.highlight}>visual explanations</span>.
             </p>
 
             <h3 className={`${styles.subtitle} ${titleFont.className}`} data-reveal style={{ '--reveal-delay': '140ms' } as React.CSSProperties}>Education</h3>

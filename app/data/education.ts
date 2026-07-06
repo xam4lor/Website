@@ -35,4 +35,4 @@ export const education: EducationEntry[] = [
     },
 ];
 
-export const researchInterests = ["Polaritonics", "Condensed Matter", "Open Quantum Systems", "Many-Body Computational Methods"];
+export const researchInterests = ["Light-Matter Interactions", "Condensed Matter", "Open Quantum Systems", "Numerical Methods"];

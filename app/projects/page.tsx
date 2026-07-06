@@ -36,7 +36,7 @@ export default function ProjectsPage() {
                 <div className={styles.hero}>
                     <Link href="/" className={`${styles.back} ${titleFont.className}`}>← Portfolio</Link>
                     <h1 className={`${styles.title} ${titleFont.className}`}>
-                        All Projects<span className={styles.dot}>.</span>
+                        Personal Projects<span className={styles.dot}>.</span>
                     </h1>
                     <p className={styles.subtitle}>Open-source tools, interactive science, and side projects.</p>
                 </div>

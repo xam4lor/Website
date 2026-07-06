@@ -96,8 +96,8 @@ export default function PublicationsPage() {
                                         <span className={styles.year}> ({pub.year})</span>
                                     </div>
                                     <div className={styles.meta}>
-                                        <span className={styles.journal}>{pub.journal}</span>
-                                        {pub.details && <span className={styles.details}>, {pub.details}</span>}
+                                        <span className={styles.journal}>{pub.journal}{pub.details && `,`}</span>
+                                        {pub.details && <span className={styles.details}> {pub.details}</span>}
                                         {pub.link && (
                                             <a
                                                 href={pub.link}

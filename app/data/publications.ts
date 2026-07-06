@@ -13,17 +13,17 @@ export const publications: Publication[] = [
         authors: "M. Dherbécourt, J. Bellessa, C. Symonds, G. Weick and D. Hagenmüller",
         year: 2026,
         title: "Spontaneous Raman Scattering under Vibrational Strong Coupling: The Critical Role of Polariton Spatial Mode Coherence",
-        journal: "arXiv",
+        journal: "arXiv preprint",
         details: "arXiv:2511.01723",
-        link: "https://arxiv.org/abs/2511.01723v1",
+        link: "https://doi.org/10.48550/arXiv.2511.01723",
         image: "/publications/2026_raman.png",
     },
     {
         authors: "D. Kim, M. Dherbécourt, et al.",
         year: 2026,
         title: "Symmetry-controlled ultrastrong phonon–photon coupling in a terahertz cavity",
-        journal: "Journal of Chemical Physics",
-        details: "vol. 164, 104201",
+        journal: "The Journal of Chemical Physics",
+        details: "164, 104201",
         link: "https://doi.org/10.1063/5.0313120",
         image: "/publications/2026_symmetry.png",
     }
@@ -34,8 +34,8 @@ const journalRegistry: { name: string; abbr: string; color: string }[] = [
     { name: "Physical Review X",       abbr: "PRX",       color: "#d81b60" },
     { name: "Physical Review A",       abbr: "PRA",       color: "#8e24aa" },
     { name: "Physical Review B",       abbr: "PRB",       color: "#8e24aa" },
-    { name: "Journal of Chemical Physics", abbr: "JCP",   color: "#00838f" },
-    { name: "arXiv",                   abbr: "arXiv",     color: "#546e7a" },
+    { name: "The Journal of Chemical Physics", abbr: "JCP",   color: "#00838f" },
+    { name: "arXiv preprint",          abbr: "arXiv",     color: "#546e7a" },
 ];
 
 function findJournal(journal: string) {

@@ -17,22 +17,39 @@
 
 .grid {
     display: grid;
-    grid-template-columns: 110px 1fr;
+    grid-template-columns: 130px 1fr;
     column-gap: 40px;
-    row-gap: 26px;
+    row-gap: 22px;
     margin: 0;
     padding: 0;
 }
 
+.divider {
+    grid-column: 1 / -1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 4px 0 2px;
+}
+
 .categoryName {
-    font-size: 11px;
-    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: rgba(255, 255, 255, 0.32);
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.55);
     padding-top: 4px;
     margin: 0;
     align-self: start;
+}
+
+.categoryIcon {
+    display: flex;
+    flex-shrink: 0;
+    color: var(--color-green);
+    opacity: 0.85;
 }
 
 .categoryItems {
@@ -45,23 +62,22 @@
 
 .item {
     display: grid;
-    grid-template-columns: 80px 1fr;
-    column-gap: 25px;
+    grid-template-columns: 92px 1fr;
+    column-gap: 20px;
     align-items: start;
 }
 
 .itemRole {
-    font-size: 10.5px;
-    font-weight: 600;
+    font-size: 10px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.7px;
-    color: var(--color-green);
-    background: rgba(57, 224, 193, 0.08);
+    letter-spacing: 0.5px;
     padding: 2px 7px;
-    border-radius: 3px;
+    border-radius: 4px;
     flex-shrink: 0;
     margin-top: 2px;
     white-space: nowrap;
+    text-align: center;
     justify-self: end;
 }
 
@@ -115,12 +131,11 @@
 @media (max-width: 640px) {
     .grid {
         grid-template-columns: 1fr;
-        row-gap: 24px;
+        row-gap: 20px;
     }
 
-    .categoryName {
-        padding-left: 10px;
-        border-left: 2px solid rgba(57, 224, 193, 0.35);
+    .divider {
+        margin: 2px 0;
     }
 
     .item {
