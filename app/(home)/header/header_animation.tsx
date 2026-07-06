@@ -320,10 +320,17 @@ export default function HeaderAnimation({ headerRef }: { headerRef: React.RefObj
             const bounds = currentRef.getBoundingClientRect();
             physics.setMouse(event.clientX - bounds.left, event.clientY - bounds.top);
         }
+        // Scrolling moves the header out from under the cursor without firing
+        // mousemove/mouseleave, so the last mouse position would otherwise stay
+        // stale and keep attracting particles indefinitely. Clear it on scroll.
+        const clearMouse = () => physics.setMouse(-1000, -1000);
+
         const currentDiv = headerRef.current;
         currentDiv?.addEventListener('mousemove', updateMouse);
+        window.addEventListener('scroll', clearMouse, { passive: true });
         return () => {
             currentDiv?.removeEventListener('mousemove', updateMouse);
+            window.removeEventListener('scroll', clearMouse);
             stopCounter();
             // When the cursor leaves the header, clear the simulation mouse
             physics.setMouse(-1000, -1000);
