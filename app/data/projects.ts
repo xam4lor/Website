@@ -41,5 +41,13 @@ export const projects: Project[] = [
         iconType: "globe",
         tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "React"],
         image: "/projects/portfolio-website.png",
+    },
+    {
+        name: "Archive Explorer",
+        description: "A website to keep track of the games you played, the books you read, and the movies and series you watched. It allows you to create a personal archive of your experiences and share them with others.",
+        link: "https://archive-explorer.mdherbecourt.dev",
+        iconType: "book",
+        tags: ["Web Development", "Personal Archive", "Next.js", "TypeScript", "Tailwind CSS"],
+        image: "/projects/archive-explorer.png",
     }
 ];
