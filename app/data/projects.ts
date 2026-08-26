@@ -67,6 +67,8 @@ export const projects: Project[] = [
         description: "A website to keep track of the games you played, the books you read, and the movies and series you watched. It allows you to create a personal archive of your experiences and share them with others.",
         link: "https://archive-explorer.mdherbecourt.dev",
         iconType: "book",
+        year: 2026,
+        pinned: false,
         tags: ["Web Development", "Personal Archive", "Next.js", "TypeScript", "Tailwind CSS"],
         image: "/projects/archive-explorer.png",
     }
