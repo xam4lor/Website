@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         default: "Maxime Dherbécourt",
     },
     description:
-        "PhD student in Physics at [University]. I work on [research area] and share interactive science explorations, publications, and open-source projects.",
+        "PhD student in Physics. Publications, projects, and interactive science explorations.",
     keywords: [
         "Maxime Dherbécourt", "mdherbecourt", "PhD", "PhD Physics", "physics", "physics research",
         "portfolio", "scientific publications", "interactive science", "explorable explanations",
