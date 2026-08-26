@@ -301,7 +301,15 @@ function PublicationsSection() {
 }
 
 function ProjectsSection() {
-	const items = projects.slice(0, cvConfig.limits.maxProjects);
+	const items = [...projects]
+		.sort((a, b) => {
+			const yearOrder = b.year - a.year;
+			if (yearOrder !== 0) {
+				return yearOrder;
+			}
+			return a.name.localeCompare(b.name);
+		})
+		.slice(0, cvConfig.limits.maxProjects);
 	if (items.length === 0) return null;
 	return (
 		<View style={styles.section}>
@@ -310,12 +318,15 @@ function ProjectsSection() {
 				<View key={i} style={styles.item}>
 					<View style={styles.itemHeaderRow}>
 						<Text style={styles.itemHeading}>{project.name}</Text>
-						<Link src={project.link} style={[styles.link, { fontSize: 8.5 }]}>
-							{stripProtocol(project.link)}
-						</Link>
+						<Text style={styles.itemPeriod}>{project.year}</Text>
 					</View>
 					<Text style={styles.itemDescription}>{project.description}</Text>
-					{project.tags && project.tags.length > 0 && <Text style={styles.tagsLine}>{project.tags.join(" · ")}</Text>}
+					<Text style={styles.tagsLine}>
+						{project.tags && project.tags.length > 0 ? `${project.tags.join(" · ")}  ·  ` : ""}
+						<Link src={project.link} style={styles.link}>
+							{stripProtocol(project.link)}
+						</Link>
+					</Text>
 				</View>
 			))}
 		</View>

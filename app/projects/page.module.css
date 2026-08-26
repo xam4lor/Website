@@ -147,6 +147,20 @@
     margin: 0;
 }
 
+.itemDescRow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    column-gap: 10px;
+}
+
+.year {
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.25px;
+    white-space: nowrap;
+}
+
 .tags {
     display: flex;
     flex-wrap: wrap;

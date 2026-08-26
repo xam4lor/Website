@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import styles from './projects.module.css';
 import { titleFont } from '../../fonts';
-import { projects } from '../../data/projects';
+import { homeProjects } from '../../data/projects';
 import { ProjectIcon } from '../../ui/project-icon';
 import { FadeImage } from '../../ui/fade-image';
 
 const PREVIEW_COUNT = 4;
 const githubLink = "https://github.com/xam4lor";
 
-function ProjectCard({ project, revealDelay }: { project: typeof projects[0]; revealDelay: number }) {
+function ProjectCard({ project, revealDelay }: { project: typeof homeProjects[0]; revealDelay: number }) {
     return (
         <a
             href={project.link}
@@ -37,14 +37,17 @@ function ProjectCard({ project, revealDelay }: { project: typeof projects[0]; re
                     <span className={styles.cardName}>{project.name}</span>
                     <span className={styles.cardArrow}>↗</span>
                 </div>
-                <div className={styles.cardDesc}>{project.description}</div>
+                <div className={styles.cardDescRow}>
+                    <div className={styles.cardDesc}>{project.description}</div>
+                    <span className={styles.year}>{project.year}</span>
+                </div>
             </div>
         </a>
     );
 }
 
 export default function Projects() {
-    const preview = projects.slice(0, PREVIEW_COUNT);
+    const preview = homeProjects.slice(0, PREVIEW_COUNT);
 
     return (
         <section id="projects" className={styles.section}>

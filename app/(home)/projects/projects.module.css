@@ -110,6 +110,20 @@
     line-height: 1.55;
 }
 
+.cardDescRow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    column-gap: 8px;
+}
+
+.year {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+}
+
 .footer {
     margin-top: 18px;
     display: flex;

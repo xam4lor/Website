@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '../(home)/header/navbar';
 import Footer from '../(home)/footer/footer';
-import { projects } from '../data/projects';
+import { projectsPageProjects } from '../data/projects';
 import { ProjectIcon } from '../ui/project-icon';
 import { titleFont } from '../fonts';
 import styles from './page.module.css';
@@ -42,7 +42,7 @@ export default function ProjectsPage() {
                 </div>
 
                 <ul className={styles.list}>
-                    {projects.map((project, i) => (
+                    {projectsPageProjects.map((project, i) => (
                         <li key={i}>
                             <a
                                 href={project.link}
@@ -77,7 +77,10 @@ export default function ProjectsPage() {
                                         <span className={`${styles.itemName} ${titleFont.className}`}>{project.name}</span>
                                         <span className={styles.itemArrow}>↗</span>
                                     </div>
-                                    <p className={styles.itemDesc}>{project.description}</p>
+                                    <div className={styles.itemDescRow}>
+                                        <p className={styles.itemDesc}>{project.description}</p>
+                                        <span className={styles.year}>{project.year}</span>
+                                    </div>
                                     {project.tags && project.tags.length > 0 && (
                                         <div className={styles.tags}>
                                             {project.tags.map((tag, j) => (
