@@ -1,0 +1,51 @@
+.themeToggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background: none;
+    border: none;
+    color: rgba(var(--color-text-rgb), 0.72);
+    cursor: pointer;
+    border-radius: 50%;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.themeToggle:hover {
+    color: var(--color-text);
+    background-color: rgba(var(--color-text-rgb), 0.08);
+}
+
+.themeToggle svg {
+    display: block;
+}
+
+.themeToggleMobile {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    gap: 8px;
+    padding: 11px 2px;
+    background: none;
+    border: none;
+    border-top: 1px solid rgba(var(--color-text-rgb), 0.05);
+    border-radius: 0;
+    color: rgba(var(--color-text-rgb), 0.72);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    justify-content: flex-start;
+    transition: color 0.2s;
+}
+
+.themeToggleMobile:hover {
+    color: var(--color-text);
+}
+
+.themeToggleMobile svg {
+    display: block;
+    flex-shrink: 0;
+}

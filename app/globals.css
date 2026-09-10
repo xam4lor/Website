@@ -5,6 +5,7 @@ html {
     overflow-x: hidden;
     background: var(--color-background);
     color: var(--color-text);
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 ol, ul {
@@ -25,10 +26,50 @@ ul {
 }
 
 :root {
+    color-scheme: dark;
+
     --color-green: #39e0c1;
     --color-green-hover: #2d9e84;
+    --color-green-rgb: 57, 224, 193;
+
     --color-background: #0d1419;
+    --color-background-rgb: 13, 20, 25;
+    --color-surface-rgb: 20, 28, 36;
+
     --color-text: #ffffff;
+    --color-text-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+        color-scheme: light;
+
+        --color-green: #0f9c85;
+        --color-green-hover: #0c7e6c;
+        --color-green-rgb: 15, 156, 133;
+
+        --color-background: #ffffff;
+        --color-background-rgb: 255, 255, 255;
+        --color-surface-rgb: 240, 244, 245;
+
+        --color-text: #0d1419;
+        --color-text-rgb: 13, 20, 25;
+    }
+}
+
+:root[data-theme="light"] {
+    color-scheme: light;
+
+    --color-green: #0f9c85;
+    --color-green-hover: #0c7e6c;
+    --color-green-rgb: 15, 156, 133;
+
+    --color-background: #ffffff;
+    --color-background-rgb: 255, 255, 255;
+    --color-surface-rgb: 240, 244, 245;
+
+    --color-text: #0d1419;
+    --color-text-rgb: 13, 20, 25;
 }
 
 .colorNote {

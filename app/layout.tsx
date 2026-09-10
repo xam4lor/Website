@@ -73,8 +73,15 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className={`${inter.className} antialiased`}>
+        <html lang="en" className={`${inter.className} antialiased`} suppressHydrationWarning>
             <head>
+                {/* Apply the stored theme before first paint to avoid a flash */}
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();`,
+                    }}
+                />
+
                 {/* Google tag (gtag.js) */}
                 <Script
                     src="https://www.googletagmanager.com/gtag/js?id=G-9SFPSHEBDE"

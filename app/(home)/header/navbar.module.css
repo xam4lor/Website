@@ -9,8 +9,8 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    color: white;
-    background: linear-gradient(to bottom, rgba(13, 20, 25, 0.98) 80%, rgba(13, 20, 25, 0));
+    color: var(--color-text);
+    background: linear-gradient(to bottom, rgba(var(--color-background-rgb), 0.98) 80%, rgba(var(--color-background-rgb), 0));
     padding-bottom: 12px;
     animation: slide-down 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
@@ -46,7 +46,7 @@
 
 .navbarContent li a {
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.72);
+    color: rgba(var(--color-text-rgb), 0.72);
     transition: color 0.2s;
     white-space: nowrap;
 }
@@ -64,11 +64,11 @@
 }
 
 .navbarContent li a:hover {
-    color: white;
+    color: var(--color-text);
 }
 
 .navbarContent li a.active {
-    color: white;
+    color: var(--color-text);
 }
 
 .navbarContent li a.active::after {
@@ -87,7 +87,7 @@
     font-weight: 600;
     color: var(--color-green) !important;
     text-decoration: none;
-    border: 1px solid rgba(57, 224, 193, 0.28);
+    border: 1px solid rgba(var(--color-green-rgb), 0.28);
     padding: 5px 13px;
     border-radius: 20px;
     transition: background-color 0.2s, border-color 0.2s;
@@ -95,8 +95,8 @@
 }
 
 .cvButton:hover {
-    background-color: rgba(57, 224, 193, 0.08);
-    border-color: rgba(57, 224, 193, 0.6);
+    background-color: rgba(var(--color-green-rgb), 0.08);
+    border-color: rgba(var(--color-green-rgb), 0.6);
     color: var(--color-green) !important;
 }
 
@@ -109,7 +109,7 @@
     display: none;
     background: none;
     border: none;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(var(--color-text-rgb), 0.8);
     cursor: pointer;
     padding: 4px;
     line-height: 0;
@@ -117,7 +117,7 @@
 }
 
 .menuButton:hover {
-    color: white;
+    color: var(--color-text);
 }
 
 /* Mobile dropdown — always in DOM for animation, hidden on desktop */
@@ -125,8 +125,8 @@
     display: none;
     overflow: hidden;
     max-height: 0;
-    background: rgba(13, 20, 25, 0.98);
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(var(--color-background-rgb), 0.98);
+    border-top: 1px solid rgba(var(--color-text-rgb), 0.06);
     transition: max-height 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -150,11 +150,11 @@
 .mobileMenuContent li a {
     display: block;
     padding: 11px 2px;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(var(--color-text-rgb), 0.7);
     text-decoration: none;
     font-size: 14px;
     font-weight: 400;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(var(--color-text-rgb), 0.05);
     transition: color 0.2s, padding-left 0.2s;
     position: relative;
 }
@@ -164,12 +164,12 @@
 }
 
 .mobileMenuContent li a:hover {
-    color: white;
+    color: var(--color-text);
     padding-left: 6px;
 }
 
 .mobileMenuContent li a.active {
-    color: white;
+    color: var(--color-text);
     padding-left: 6px;
     border-left: 2px solid var(--color-green);
 }
@@ -184,7 +184,7 @@
     font-weight: 600;
     color: var(--color-green) !important;
     text-decoration: none;
-    border: 1px solid rgba(57, 224, 193, 0.28);
+    border: 1px solid rgba(var(--color-green-rgb), 0.28);
     padding: 7px 16px;
     border-radius: 20px;
     transition: background-color 0.2s, border-color 0.2s;
@@ -192,8 +192,8 @@
 }
 
 .cvButtonMobile:hover {
-    background-color: rgba(57, 224, 193, 0.08);
-    border-color: rgba(57, 224, 193, 0.6);
+    background-color: rgba(var(--color-green-rgb), 0.08);
+    border-color: rgba(var(--color-green-rgb), 0.6);
 }
 
 /* Override the generic li a rules that break the button layout */
@@ -223,6 +223,6 @@
 
     .navbar {
         padding-bottom: 0;
-        background: rgba(13, 20, 25, 0.98);
+        background: rgba(var(--color-background-rgb), 0.98);
     }
 }

@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { navItems } from '../../data/nav';
 import { useState, useEffect, useRef, startTransition } from 'react';
+import { ThemeToggle } from '../../ui/theme/theme-toggle';
 
 const DownloadIcon = () => (
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -73,6 +74,9 @@ export default function Navbar() {
                             CV
                         </a>
                     </li>
+                    <li>
+                        <ThemeToggle />
+                    </li>
                 </ul>
                 <button
                     className={styles.menuButton}
@@ -101,6 +105,9 @@ export default function Navbar() {
                             <DownloadIcon />
                             CV
                         </a>
+                    </li>
+                    <li>
+                        <ThemeToggle variant="mobile" />
                     </li>
                 </ul>
             </div>

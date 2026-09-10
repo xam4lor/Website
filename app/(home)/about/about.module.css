@@ -18,7 +18,7 @@
 .intro {
     font-size: 15px;
     line-height: 1.85;
-    color: rgba(255, 255, 255, 0.68);
+    color: rgba(var(--color-text-rgb), 0.68);
     margin-bottom: 40px;
     max-width: 800px;
 }
@@ -28,7 +28,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(var(--color-text-rgb), 0.3);
     margin-bottom: 18px;
 }
 
@@ -55,7 +55,7 @@
     bottom: -29.5px;
     left: 2.2px;
     width: 3px;
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: rgba(var(--color-text-rgb), 0.12);
 }
 
 .bullet {
@@ -85,25 +85,25 @@
 .degree {
     font-size: 14.5px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(var(--color-text-rgb), 0.9);
 }
 
 .period {
     font-size: 12px;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(var(--color-text-rgb), 0.35);
     white-space: nowrap;
     font-family: monospace;
 }
 
 .institution {
     font-size: 13px;
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(var(--color-text-rgb), 0.45);
     margin-top: 3px;
 }
 
 .description {
     font-size: 12.5px;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(var(--color-text-rgb), 0.3);
     margin-top: 4px;
     font-style: italic;
 }
@@ -111,9 +111,9 @@
 .interests {
     margin-top: 32px;
     padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(var(--color-text-rgb), 0.05);
     font-size: 13px;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(var(--color-text-rgb), 0.4);
 }
 
 .interestLabel {
@@ -121,7 +121,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: rgba(255, 255, 255, 0.25);
+    color: rgba(var(--color-text-rgb), 0.25);
     margin-right: 10px;
 }
 
@@ -135,7 +135,7 @@
     margin-top: 34px;
     padding: 22px 22px 24px;
     border-radius: 18px;
-    border: 1px solid rgba(57, 224, 193, 0.18);
+    border: 1px solid rgba(var(--color-green-rgb), 0.18);
     background: transparent;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
 }
@@ -159,11 +159,11 @@
     min-height: 32px;
     padding: 0 14px;
     border-radius: 999px;
-    border: 1px solid rgba(57, 224, 193, 0.28);
-    background: linear-gradient(135deg, rgba(57, 224, 193, 0.04), rgba(57, 224, 193, 0.03)),
-        rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(var(--color-green-rgb), 0.28);
+    background: linear-gradient(135deg, rgba(var(--color-green-rgb), 0.04), rgba(var(--color-green-rgb), 0.03)),
+        rgba(var(--color-text-rgb), 0.03);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    color: rgba(255, 255, 255, 0.92);
+    color: rgba(var(--color-text-rgb), 0.92);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.2px;

@@ -5,6 +5,17 @@ import { JSX, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import React from "react";
 import { ErrorBoundary } from 'react-error-boundary';
 import logger from '@/app/api/client/logger';
+import { Theme, useEffectiveTheme } from '../../ui/theme/use-theme';
+
+const PARTICLE_COLOR: Record<Theme, string> = {
+    dark: '150, 173, 215',
+    light: '70, 92, 130',
+};
+
+const LINK_COLOR: Record<Theme, string> = {
+    dark: '80, 103, 145',
+    light: '55, 74, 108',
+};
 
 class Simulation {
     // Particles properties
@@ -139,7 +150,7 @@ class Simulation {
         this.updateLinks();
     }
 
-    draw(context: CanvasRenderingContext2D) {
+    draw(context: CanvasRenderingContext2D, theme: Theme = 'dark') {
         // Draw particles
         for (let i = 0; i < this.particlesCount; i++) {
             const position = this.positions[i];
@@ -148,7 +159,7 @@ class Simulation {
             // Draw particle
             context.beginPath();
             context.arc(position.x, position.y, radius, 0, 2 * Math.PI);
-            context.fillStyle = `rgba(150, 173, 215, ${this.alpha[i]})`;
+            context.fillStyle = `rgba(${PARTICLE_COLOR[theme]}, ${this.alpha[i]})`;
             context.fill();
         }
 
@@ -173,7 +184,7 @@ class Simulation {
             context.beginPath();
             context.moveTo(p0.x, p0.y);
             context.lineTo(p1.x, p1.y);
-            context.strokeStyle = `rgba(80, 103, 145, ${alpha})`;
+            context.strokeStyle = `rgba(${LINK_COLOR[theme]}, ${alpha})`;
             context.lineWidth = 0.6;
             context.stroke();
         }
@@ -200,8 +211,9 @@ interface CanvasElement {
     /**
      * Draw the instance
      * @param context Canvas rendering context
+     * @param theme Current color theme
      */
-    draw(context: CanvasRenderingContext2D): void;
+    draw(context: CanvasRenderingContext2D, theme: Theme): void;
 }
 
 /**
@@ -210,12 +222,18 @@ interface CanvasElement {
  * @param props.width Width of the canvas
  * @param props.height Height of the canvas
  * @param props.instance Instance of the renderable instance, must implement CanvasElement
+ * @param props.theme Current color theme, used to pick particle colors without restarting the simulation
  * @param props.errorFallback Fallback to render if an error occurs (if not specified, nothing is rendered)
  */
-function Canvas(props: { width: number, height: number, instance: CanvasElement, errorFallback?: JSX.Element }) {
+function Canvas(props: { width: number, height: number, instance: CanvasElement, theme: Theme, errorFallback?: JSX.Element }) {
     // Create canvas
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const contextRef = useRef<CanvasRenderingContext2D>(null!);
+    // Read via a ref inside the render loop so theme changes don't restart the simulation
+    const themeRef = useRef(props.theme);
+    useEffect(() => {
+        themeRef.current = props.theme;
+    }, [props.theme]);
 
     useEffect(() => {
         // Get canvas and context
@@ -241,7 +259,7 @@ function Canvas(props: { width: number, height: number, instance: CanvasElement,
 
             // Update and draw
             props.instance.update.bind(props.instance)(dt);
-            props.instance.draw.bind(props.instance)(context!);
+            props.instance.draw.bind(props.instance)(context!, themeRef.current);
 
             // Request next frame
             animationFrameId = window.requestAnimationFrame(render);
@@ -263,6 +281,8 @@ function Canvas(props: { width: number, height: number, instance: CanvasElement,
 }
 
 export default function HeaderAnimation({ headerRef }: { headerRef: React.RefObject<HTMLElement | null> }) {
+    const theme = useEffectiveTheme();
+
     // Get window size
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
@@ -348,7 +368,7 @@ export default function HeaderAnimation({ headerRef }: { headerRef: React.RefObj
                 physics.setMouse(-1000, -1000);
             }}
         >
-            <Canvas width={width} height={height} instance={physics} />
+            <Canvas width={width} height={height} instance={physics} theme={theme} />
         </div>
     )
 }
