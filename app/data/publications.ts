@@ -13,9 +13,9 @@ export const publications: Publication[] = [
         authors: "M. Dherbécourt, J. Bellessa, C. Symonds, G. Weick and D. Hagenmüller",
         year: 2026,
         title: "Spontaneous Raman Scattering under Vibrational Strong Coupling: The Critical Role of Polariton Spatial Mode Coherence",
-        journal: "arXiv preprint",
-        details: "arXiv:2511.01723",
-        link: "https://doi.org/10.48550/arXiv.2511.01723",
+        journal: "Physical Review Letters",
+        details: "137, 116901",
+        link: "https://doi.org/10.1103/m138-4w64",
         image: "/publications/2026_raman.png",
     },
     {
