@@ -1,12 +1,9 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
 import Navbar from '../(home)/header/navbar';
 import Footer from '../(home)/footer/footer';
 import { projectsPageProjects } from '../data/projects';
-import { ProjectIcon } from '../ui/project-icon';
-import { titleFont } from '../fonts';
-import styles from './page.module.css';
+import Section, { PageIntro } from '../ui/section/section';
+import ProjectCard, { ProjectGrid } from '../ui/project-card/project-card';
 
 export const metadata: Metadata = {
     title: "Projects",
@@ -32,67 +29,17 @@ export default function ProjectsPage() {
     return (
         <>
             <Navbar />
-            <main className={styles.main}>
-                <div className={styles.hero}>
-                    <Link href="/" className={`${styles.back} ${titleFont.className}`}>← Portfolio</Link>
-                    <h1 className={`${styles.title} ${titleFont.className}`}>
-                        Personal Projects<span className={styles.dot}>.</span>
-                    </h1>
-                    <p className={styles.subtitle}>Open-source tools, interactive science, and side projects.</p>
-                </div>
-
-                <ul className={styles.list}>
-                    {projectsPageProjects.map((project, i) => (
-                        <li key={i}>
-                            <a
-                                href={project.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={styles.item}
-                                data-reveal
-                                style={{ '--reveal-delay': `${i * 60}ms` } as React.CSSProperties}
-                            >
-                                <div className={styles.itemImage}>
-                                    {project.image ? (
-                                        <Image
-                                            src={project.image}
-                                            alt={project.name}
-                                            fill
-                                            className={styles.itemImageImg}
-                                            style={{ objectFit: 'cover' }}
-                                        />
-                                    ) : (
-                                        <div className={styles.imagePlaceholder}>
-                                            <span className={styles.placeholderIcon}>
-                                                <ProjectIcon type={project.iconType} size={20} />
-                                            </span>
-                                        </div>
-                                    )}
-                                </div>
-                                <div className={styles.itemBody}>
-                                    <div className={styles.itemHeader}>
-                                        <span className={styles.itemIcon}>
-                                            <ProjectIcon type={project.iconType} size={15} />
-                                        </span>
-                                        <span className={`${styles.itemName} ${titleFont.className}`}>{project.name}</span>
-                                        <span className={styles.itemArrow}>↗</span>
-                                    </div>
-                                    <div className={styles.itemDescRow}>
-                                        <p className={styles.itemDesc}>{project.description}</p>
-                                        <span className={styles.year}>{project.year}</span>
-                                    </div>
-                                    {project.tags && project.tags.length > 0 && (
-                                        <div className={styles.tags}>
-                                            {project.tags.map((tag, j) => (
-                                                <span key={j} className={styles.tag}>{tag}</span>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-                            </a>
-                        </li>
-                    ))}
-                </ul>
+            <main>
+                <PageIntro
+                    title="Projects"
+                    subtitle="Open-source tools, interactive science, and side projects."
+                    actions={[{ href: "https://github.com/xam4lor", label: "GitHub", external: true }]}
+                />
+                <Section title={`${projectsPageProjects.length} projects`}>
+                    <ProjectGrid>
+                        {projectsPageProjects.map((project) => <ProjectCard key={project.name} project={project} maxTags={5} />)}
+                    </ProjectGrid>
+                </Section>
             </main>
             <Footer />
         </>

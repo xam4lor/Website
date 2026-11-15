@@ -1,10 +1,7 @@
-export type IconType = 'flask' | 'code' | 'globe' | 'book';
-
 export type Project = {
     name: string;
     description: string;
     link: string;
-    iconType: IconType;
     year: number;
     pinned: boolean;
     image?: string;
@@ -16,7 +13,6 @@ export const projects: Project[] = [
         name: "Explorable Science",
         description: "Explorable visual articles and interactive simulations on various scientific topics such as phase transitions, general relativity, quantum mechanics and more.",
         link: "https://explorablescience.com",
-        iconType: "globe",
         year: 2019,
         pinned: true,
         tags: ["Science Communication", "Interactive Simulations", "Explorables"],
@@ -26,7 +22,6 @@ export const projects: Project[] = [
         name: "WaterDropEngine",
         description: "A high-performance, ECS driven and Vulkan based game engine written in Rust. Designed for flexibility and speed, with a focus on 3D game development.",
         link: "https://github.com/explorablescience/WaterDropEngine",
-        iconType: "code",
         year: 2023,
         pinned: true,
         tags: ["Rust", "Game Engine", "Vulkan", "WebGPU"],
@@ -36,7 +31,6 @@ export const projects: Project[] = [
         name: "WaterDropEngine Terrain Generator",
         description: "A procedural terrain generator built with WaterDropEngine, producing realistic 3D landscapes using noise-based algorithms and GPU-accelerated mesh generation.",
         link: "https://github.com/explorablescience/WaterDropTerrainGenerator",
-        iconType: "code",
         year: 2026,
         pinned: true,
         tags: ["Rust", "Procedural Generation", "Terrain", "Vulkan"],
@@ -46,7 +40,6 @@ export const projects: Project[] = [
         name: "Physics Simulation Engine",
         description: "A high-level JavaScript library for creating interactive physics simulations in the browser built on top of the canvas API.",
         link: "https://github.com/explorablescience/PhysicsSimulationEngine",
-        iconType: "flask",
         year: 2017,
         pinned: true,
         tags: ["JavaScript", "Physics Simulation", "Educational", "Interactive Science"],
@@ -56,7 +49,6 @@ export const projects: Project[] = [
         name: "Portfolio Website",
         description: "The source code for this portfolio website, built with Next.js, TypeScript, Tailwind CSS and Vercel. It features a clean and modern design, showcasing my projects and skills.",
         link: "https://github.com/xam4lor/Website",
-        iconType: "globe",
         year: 2025,
         pinned: false,
         tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "React"],
@@ -66,7 +58,6 @@ export const projects: Project[] = [
         name: "Archive Explorer",
         description: "A website to keep track of the games you played, the books you read, and the movies and series you watched. It allows you to create a personal archive of your experiences and share them with others.",
         link: "https://archive-explorer.mdherbecourt.dev",
-        iconType: "book",
         year: 2026,
         pinned: false,
         tags: ["Web Development", "Personal Archive", "Next.js", "TypeScript", "Tailwind CSS"],

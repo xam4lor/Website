@@ -1,0 +1,104 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    background: var(--bg);
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.card:hover {
+    border-color: var(--border-strong);
+    box-shadow: 0 4px 14px -6px rgba(28, 27, 25, 0.14);
+}
+
+.image {
+    position: relative;
+    aspect-ratio: 2 / 1;
+    background: var(--bg-muted);
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    padding: 16px 18px 18px;
+}
+
+.header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.name {
+    font-size: var(--fs-base);
+    font-weight: 600;
+    line-height: var(--lh-snug);
+    color: var(--text);
+    margin: 0;
+    transition: color 0.15s;
+}
+
+.arrow {
+    color: var(--text-4);
+    font-weight: 400;
+    margin-left: 4px;
+    transition: color 0.15s;
+}
+
+.card:hover .name,
+.card:hover .arrow {
+    color: var(--accent);
+}
+
+.year {
+    flex-shrink: 0;
+    font-size: var(--fs-xs);
+    font-variant-numeric: tabular-nums;
+    color: var(--text-3);
+}
+
+.description {
+    font-size: var(--fs-sm);
+    line-height: 1.65;
+    color: var(--text-2);
+    margin: 0;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+    padding-top: 10px;
+    list-style: none;
+}
+
+.tags li {
+    font-size: 12px;
+    color: var(--text-3);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-soft);
+    padding: 0 8px;
+    line-height: 20px;
+    border-radius: 4px;
+}
+
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -9,12 +9,12 @@ import { Theme, useEffectiveTheme } from '../../ui/theme/use-theme';
 
 const PARTICLE_COLOR: Record<Theme, string> = {
     dark: '150, 173, 215',
-    light: '70, 92, 130',
+    light: '33, 54, 91',
 };
 
 const LINK_COLOR: Record<Theme, string> = {
     dark: '80, 103, 145',
-    light: '55, 74, 108',
+    light: '33, 54, 91',
 };
 
 class Simulation {

@@ -1,51 +1,31 @@
-.themeToggle {
+.toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     padding: 0;
     background: none;
-    border: none;
-    color: rgba(var(--color-text-rgb), 0.72);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-2);
     cursor: pointer;
-    border-radius: 50%;
-    transition: color 0.2s, background-color 0.2s;
+    transition: color 0.15s, border-color 0.15s;
 }
 
-.themeToggle:hover {
-    color: var(--color-text);
-    background-color: rgba(var(--color-text-rgb), 0.08);
+.toggle:hover {
+    color: var(--text);
+    border-color: var(--border-strong);
 }
 
-.themeToggle svg {
-    display: block;
-}
-
-.themeToggleMobile {
+.toggleMobile {
     display: inline-flex;
     align-items: center;
-    width: 100%;
-    height: auto;
-    gap: 8px;
-    padding: 11px 2px;
+    gap: 10px;
+    padding: 10px 0;
     background: none;
     border: none;
-    border-top: 1px solid rgba(var(--color-text-rgb), 0.05);
-    border-radius: 0;
-    color: rgba(var(--color-text-rgb), 0.72);
+    color: var(--text-2);
+    font-size: var(--fs-base);
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 400;
-    justify-content: flex-start;
-    transition: color 0.2s;
-}
-
-.themeToggleMobile:hover {
-    color: var(--color-text);
-}
-
-.themeToggleMobile svg {
-    display: block;
-    flex-shrink: 0;
 }

@@ -6,49 +6,53 @@ export type Theme = 'light' | 'dark';
 
 const THEME_STORAGE_KEY = 'theme';
 const THEME_CHANGE_EVENT = 'themechange';
+const DARK_QUERY = '(prefers-color-scheme: dark)';
 
-function readSystemTheme(): Theme {
-    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+function readTheme(): Theme {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
 }
 
-function readEffectiveTheme(): Theme {
-    const explicit = document.documentElement.getAttribute('data-theme');
-    if (explicit === 'light' || explicit === 'dark') return explicit;
-    return readSystemTheme();
-}
-
-export function setTheme(theme: Theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    try {
-        localStorage.setItem(THEME_STORAGE_KEY, theme);
-    } catch {
-        // Ignore storage errors (e.g. private browsing)
-    }
+function applyTheme(theme: Theme) {
+    if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    else document.documentElement.removeAttribute('data-theme');
     window.dispatchEvent(new CustomEvent(THEME_CHANGE_EVENT, { detail: theme }));
 }
 
+function hasStoredTheme(): boolean {
+    try {
+        const stored = localStorage.getItem(THEME_STORAGE_KEY);
+        return stored === 'light' || stored === 'dark';
+    } catch {
+        return false;
+    }
+}
+
+export function setTheme(theme: Theme) {
+    try {
+        localStorage.setItem(THEME_STORAGE_KEY, theme);
+    } catch {
+        // Storage can be unavailable (private browsing)
+    }
+    applyTheme(theme);
+}
+
 function subscribe(callback: () => void) {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
-    mediaQuery.addEventListener('change', callback);
+    const media = window.matchMedia(DARK_QUERY);
+    // Follow OS changes until the visitor picks a theme explicitly
+    const onSystemChange = () => {
+        if (!hasStoredTheme()) applyTheme(media.matches ? 'dark' : 'light');
+    };
+    media.addEventListener('change', onSystemChange);
     window.addEventListener(THEME_CHANGE_EVENT, callback);
     window.addEventListener('storage', callback);
-
     return () => {
-        mediaQuery.removeEventListener('change', callback);
+        media.removeEventListener('change', onSystemChange);
         window.removeEventListener(THEME_CHANGE_EVENT, callback);
         window.removeEventListener('storage', callback);
     };
 }
 
-function getServerSnapshot(): Theme {
-    return 'dark';
-}
-
-/**
- * Tracks the theme currently applied to the page (explicit user choice, or
- * the system preference when the user hasn't chosen one), staying in sync
- * with toggles in this tab, other tabs, and OS-level changes.
- */
+/** Explicit choice if any, otherwise the system preference. */
 export function useEffectiveTheme(): Theme {
-    return useSyncExternalStore(subscribe, readEffectiveTheme, getServerSnapshot);
+    return useSyncExternalStore(subscribe, readTheme, () => 'light');
 }

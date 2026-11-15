@@ -41,3 +41,4 @@ next-env.d.ts
 # Custom
 old/
 .env*.local
+/cv.pdf

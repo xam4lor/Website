@@ -1,228 +1,107 @@
-@keyframes slide-down {
-    from { opacity: 0; transform: translateY(-110%); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-.navbar {
-    position: fixed;
+.nav {
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    color: var(--color-text);
-    background: linear-gradient(to bottom, rgba(var(--color-background-rgb), 0.98) 80%, rgba(var(--color-background-rgb), 0));
-    padding-bottom: 12px;
-    animation: slide-down 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border-soft);
 }
 
-.navbarWrapper {
+.bar {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    width: 90%;
-    max-width: 1400px;
+    justify-content: space-between;
+    gap: 24px;
+    height: var(--nav-height);
+    max-width: calc(var(--content) + 2 * var(--gutter));
     margin: 0 auto;
-    margin-top: 22px;
-    margin-bottom: 12px;
+    padding: 0 var(--gutter);
 }
 
-.navbarContent {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 36px;
-    font-size: 13.5px;
-    font-weight: 400;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.navbarContent li {
-    list-style: none;
-    display: flex;
-    position: relative;
-}
-
-.navbarContent li a {
+.brand {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--text);
     text-decoration: none;
-    color: rgba(var(--color-text-rgb), 0.72);
-    transition: color 0.2s;
     white-space: nowrap;
 }
 
-.navbarContent li a::after {
-    content: "";
-    position: absolute;
-    bottom: -6px;
-    left: -10%;
-    width: 120%;
-    height: 1.5px;
-    border-radius: 2px;
-    background-color: transparent;
-    transition: background-color 0.3s;
-}
-
-.navbarContent li a:hover {
-    color: var(--color-text);
-}
-
-.navbarContent li a.active {
-    color: var(--color-text);
-}
-
-.navbarContent li a.active::after {
-    background-color: var(--color-green);
-}
-
-.cvItem {
-    margin-left: 4px;
-}
-
-.cvButton {
+.links {
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 12.5px;
-    font-weight: 600;
-    color: var(--color-green) !important;
+    gap: 26px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.link {
+    position: relative;
+    font-size: var(--fs-sm);
+    letter-spacing: 0.01em;
+    color: var(--text-3);
     text-decoration: none;
-    border: 1px solid rgba(var(--color-green-rgb), 0.28);
-    padding: 5px 13px;
-    border-radius: 20px;
-    transition: background-color 0.2s, border-color 0.2s;
-    letter-spacing: 0.2px;
+    transition: color 0.15s;
 }
 
-.cvButton:hover {
-    background-color: rgba(var(--color-green-rgb), 0.08);
-    border-color: rgba(var(--color-green-rgb), 0.6);
-    color: var(--color-green) !important;
+.link:hover,
+.active {
+    color: var(--text);
 }
 
-.cvButton::after {
-    display: none !important;
+.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -20px;
+    height: 2px;
+    background: var(--accent);
 }
 
-/* Hamburger button — hidden on desktop */
 .menuButton {
     display: none;
     background: none;
     border: none;
-    color: rgba(var(--color-text-rgb), 0.8);
+    padding: 6px;
+    color: var(--text-2);
     cursor: pointer;
-    padding: 4px;
     line-height: 0;
-    transition: color 0.2s;
 }
 
-.menuButton:hover {
-    color: var(--color-text);
-}
-
-/* Mobile dropdown — always in DOM for animation, hidden on desktop */
 .mobileMenu {
     display: none;
-    overflow: hidden;
-    max-height: 0;
-    background: rgba(var(--color-background-rgb), 0.98);
-    border-top: 1px solid rgba(var(--color-text-rgb), 0.06);
-    transition: max-height 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-top: 1px solid var(--border-soft);
+    background: var(--bg-subtle);
 }
 
-.mobileMenuOpen {
-    max-height: 400px;
-}
-
-.mobileMenuContent {
-    display: flex;
-    flex-direction: column;
+.mobileLinks {
     list-style: none;
-    padding: 6px 0 20px;
-    margin: 0 auto;
-    width: 90%;
+    margin: 0;
+    padding: 8px var(--gutter) 16px;
 }
 
-.mobileMenuContent li {
-    list-style: none;
-}
-
-.mobileMenuContent li a {
+.mobileLinks .link {
     display: block;
-    padding: 11px 2px;
-    color: rgba(var(--color-text-rgb), 0.7);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 400;
-    border-bottom: 1px solid rgba(var(--color-text-rgb), 0.05);
-    transition: color 0.2s, padding-left 0.2s;
-    position: relative;
+    padding: 10px 0;
+    font-size: var(--fs-base);
 }
 
-.mobileMenuContent li:last-child a {
-    border-bottom: none;
+.mobileLinks .active::after {
+    display: none;
 }
 
-.mobileMenuContent li a:hover {
-    color: var(--color-text);
-    padding-left: 6px;
-}
-
-.mobileMenuContent li a.active {
-    color: var(--color-text);
-    padding-left: 6px;
-    border-left: 2px solid var(--color-green);
-}
-
-.cvButtonMobile {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    margin-top: 6px;
-    margin-bottom: 2px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--color-green) !important;
-    text-decoration: none;
-    border: 1px solid rgba(var(--color-green-rgb), 0.28);
-    padding: 7px 16px;
-    border-radius: 20px;
-    transition: background-color 0.2s, border-color 0.2s;
-    letter-spacing: 0.2px;
-}
-
-.cvButtonMobile:hover {
-    background-color: rgba(var(--color-green-rgb), 0.08);
-    border-color: rgba(var(--color-green-rgb), 0.6);
-}
-
-/* Override the generic li a rules that break the button layout */
-.mobileMenuContent li .cvButtonMobile {
-    display: inline-flex;
-    padding: 7px 16px;
-    border-bottom: none;
-}
-
-@media (max-width: 560px) {
-    .navbarWrapper {
-        width: 92%;
-        margin-top: 16px;
-    }
-
-    .navbarContent {
+@media (max-width: 720px) {
+    .links {
         display: none;
     }
 
     .menuButton {
-        display: flex;
-    }
-
-    .mobileMenu {
         display: block;
     }
 
-    .navbar {
-        padding-bottom: 0;
-        background: rgba(var(--color-background-rgb), 0.98);
+    .mobileMenu.open {
+        display: block;
     }
 }

@@ -21,8 +21,8 @@ export default function GlobalError({
                 <style>{`
                     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
                     body {
-                        background: #0d1419;
-                        color: #ffffff;
+                        background: #ffffff;
+                        color: #111827;
                         font-family: system-ui, -apple-system, sans-serif;
                         min-height: 100vh;
                         display: flex;
@@ -35,8 +35,7 @@ export default function GlobalError({
                         font-size: 96px;
                         font-weight: 800;
                         line-height: 1;
-                        color: #39e0c1;
-                        opacity: 0.12;
+                        color: #0e7c6b;
                         letter-spacing: -4px;
                         margin-bottom: 4px;
                     }
@@ -47,7 +46,7 @@ export default function GlobalError({
                     }
                     p {
                         font-size: 15px;
-                        color: rgba(255,255,255,0.46);
+                        color: #475467;
                         line-height: 1.7;
                         max-width: 380px;
                         margin: 0 auto 28px;
@@ -62,16 +61,16 @@ export default function GlobalError({
                     button {
                         font-size: 13.5px;
                         font-weight: 600;
-                        color: #39e0c1;
-                        background: rgba(57,224,193,0.07);
-                        border: 1px solid rgba(57,224,193,0.28);
-                        padding: 7px 20px;
-                        border-radius: 20px;
+                        color: #fff;
+                        background: #0e7c6b;
+                        border: none;
+                        padding: 10px 22px;
+                        border-radius: 8px;
                         cursor: pointer;
                     }
                     a {
                         font-size: 13.5px;
-                        color: rgba(255,255,255,0.42);
+                        color: #475467;
                         text-decoration: none;
                     }
                 `}</style>
@@ -79,11 +78,11 @@ export default function GlobalError({
             <body>
                 <div>
                     <p className="code">500</p>
-                    <h1>Something went wrong.</h1>
+                    <h1>Something went wrong</h1>
                     <p>A critical error occurred. Please try reloading the page.</p>
                     <div className="actions">
                         <button onClick={reset}>Try again</button>
-                        <Link href="/">← Back to portfolio</Link>
+                        <Link href="/">Back to home</Link>
                     </div>
                 </div>
             </body>

@@ -30,12 +30,12 @@ export const publications: Publication[] = [
 ];
 
 const journalRegistry: { name: string; abbr: string; color: string }[] = [
-    { name: "Physical Review Letters", abbr: "PRL",       color: "#e53935" },
-    { name: "Physical Review X",       abbr: "PRX",       color: "#d81b60" },
-    { name: "Physical Review A",       abbr: "PRA",       color: "#8e24aa" },
-    { name: "Physical Review B",       abbr: "PRB",       color: "#8e24aa" },
-    { name: "The Journal of Chemical Physics", abbr: "JCP",   color: "#00838f" },
-    { name: "arXiv preprint",          abbr: "arXiv",     color: "#546e7a" },
+    { name: "Physical Review Letters", abbr: "PRL", color: "#c8372d" },
+    { name: "Physical Review X",       abbr: "PRX", color: "#b8336a" },
+    { name: "Physical Review A",       abbr: "PRA", color: "#7a4cc2" },
+    { name: "Physical Review B",       abbr: "PRB", color: "#5b54c9" },
+    { name: "The Journal of Chemical Physics", abbr: "JCP", color: "#1f6fb2" },
+    { name: "arXiv preprint",          abbr: "arXiv", color: "#7d7c76" },
 ];
 
 function findJournal(journal: string) {
@@ -43,10 +43,10 @@ function findJournal(journal: string) {
     return journalRegistry.find(j => lower.includes(j.name.toLowerCase()));
 }
 
-export function getJournalColor(journal: string): string {
-    return findJournal(journal)?.color ?? "#546e7a";
-}
-
 export function getJournalAbbr(journal: string): string {
     return findJournal(journal)?.abbr ?? journal;
+}
+
+export function getJournalColor(journal: string): string {
+    return findJournal(journal)?.color ?? "#7d7c76";
 }

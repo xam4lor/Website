@@ -2,11 +2,10 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from "next";
 import styles from './layout.module.css'
-import { inter } from "./fonts.ts";
+import { sansFont, displayFont } from "./fonts.ts";
 import "./globals.css";
 import Script from "next/script";
 import { CustomAnalytics } from './api/client/analytics.tsx';
-import { RevealObserver } from './ui/reveal-observer';
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://mdherbecourt.dev"),
@@ -73,12 +72,12 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className={`${inter.className} antialiased`} suppressHydrationWarning>
+        <html lang="en" className={`${sansFont.variable} ${displayFont.variable} antialiased`} suppressHydrationWarning>
             <head>
-                {/* Apply the stored theme before first paint to avoid a flash */}
+                {/* Stored choice, else system preference; applied before first paint */}
                 <script
                     dangerouslySetInnerHTML={{
-                        __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();`,
+                        __html: `(function(){var t;try{t=localStorage.getItem('theme');}catch(e){}if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}})();`,
                     }}
                 />
 
@@ -99,7 +98,6 @@ export default function RootLayout({
             <body className={styles.body}>
                 {children}
 
-                <RevealObserver />
                 <CustomAnalytics />
                 <Analytics />
                 <SpeedInsights />

@@ -1,213 +1,169 @@
-@keyframes profile-enter {
-    from {
-        opacity: 0;
-        transform: scale(0.76);
-        filter: blur(10px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-        filter: blur(0px);
-    }
-}
-
-@keyframes slide-left {
-    from {
-        opacity: 0;
-        transform: translateX(-22px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 .header {
-    width: 100%;
-    min-height: 170px;
-    min-height: 40vh;
-    padding-bottom: 20px;
-    background: var(--color-background);
-    color: var(--color-text);
     position: relative;
     overflow: hidden;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border-soft);
 }
 
-.headerContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 40vh;
-    z-index: 10;
+.inner {
     position: relative;
-    padding-top: 35px;
-    padding-bottom: 10px;
-}
-
-.headerContainer {
+    z-index: 1;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-}
-
-.profilePicture {
-    margin: 0 6px 0px 0;
-    animation: profile-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
-}
-
-.profilePicture img {
-    display: block;
-    width: 148px;
-    height: 148px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid rgba(var(--color-green-rgb), 0.5);
-    box-shadow: 0 0 28px rgba(var(--color-green-rgb), 0.08), 0 6px 24px rgba(0, 0, 0, 0.45);
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.profilePicture img:hover {
-    border-color: var(--color-green);
-    box-shadow: 0 0 36px rgba(var(--color-green-rgb), 0.2), 0 6px 24px rgba(0, 0, 0, 0.45);
-}
-
-.headerText {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-}
-
-.headerText h1 {
-    font-size: 38px;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-    margin: 0;
-    line-height: 1.1;
-    animation: slide-left 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
-}
-
-.dot {
-    color: var(--color-green);
-}
-
-.headerText h2 {
-    font-size: 18px;
-    font-weight: 400;
-    color: rgba(var(--color-text-rgb), 0.52);
-    margin: 0;
-    letter-spacing: 0.6px;
-    animation: slide-left 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both;
-}
-
-.meta {
-    font-size: 14px;
-    color: rgba(var(--color-text-rgb), 0.28);
-    margin: 0;
-    letter-spacing: 0.3px;
-    animation: slide-left 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
-}
-
-.emailButton {
-    width: -moz-fit-content;
-    width: fit-content;
-    color: var(--color-text);
-    background: linear-gradient(135deg, rgba(var(--color-green-rgb), .05), rgba(var(--color-green-rgb), .02));
-    border: 1px solid rgba(var(--color-green-rgb), .2);
-    border-radius: 999px;
-    align-items: center;
-    gap: 10px;
-    margin-top: 11px;
-    margin-left: 8px;
-    padding: 4px 14px;
-    text-decoration: none;
-    transition: transform .22s, border-color .22s, background .22s, box-shadow .22s;
-    display: inline-flex;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .18), inset 0 1px rgba(var(--color-text-rgb), .04);
-    animation: slide-left 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.48s both;
-}
-
-.emailButton:hover {
-    transform: translateY(-1px);
-    border-color: rgba(var(--color-green-rgb), 0.42);
-    background: linear-gradient(135deg, rgba(var(--color-green-rgb), 0.18), rgba(var(--color-green-rgb), 0.08));
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24), 0 0 0 1px rgba(var(--color-green-rgb), 0.06);
-}
-
-.emailIcon {
-    display: grid;
-    place-items: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: rgba(var(--color-green-rgb), 0.12);
-    color: var(--color-green);
-    flex: 0 0 auto;
-}
-
-.emailText {
-    display: flex;
-    flex-direction: column;
     align-items: flex-start;
-    gap: 1px;
-    min-width: 0;
+    gap: 40px;
+    max-width: calc(var(--content) + 2 * var(--gutter));
+    margin: 0 auto;
+    padding: 72px var(--gutter) 64px;
+    pointer-events: none;
 }
 
-.emailLabel {
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(var(--color-text-rgb), 0.55);
+.inner a {
+    pointer-events: auto;
 }
 
-.emailAddress {
-    font-size: 13px;
-    letter-spacing: 0.2px;
-    color: rgba(var(--color-text-rgb), 0.92);
-    white-space: nowrap;
+.portrait {
+    flex-shrink: 0;
+    display: block;
+    width: 144px;
+    height: 144px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--bg);
+    box-shadow: 0 0 0 1px var(--border);
 }
 
-@media (max-width: 540px) {
-    .headerContent {
-        padding-top: 70px;
-    }
+.name {
+    font-family: var(--font-heading);
+    font-size: 42px;
+    font-weight: 600;
+    line-height: var(--lh-tight);
+    letter-spacing: -0.025em;
+    color: var(--text);
+    margin: 0;
+}
 
-    .headerContainer {
+.highlight {
+    color: var(--accent);
+}
+
+.role {
+    font-size: var(--fs-md);
+    line-height: var(--lh-snug);
+    color: var(--text-2);
+    margin: 10px 0 0;
+}
+
+.role a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.role a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.bio {
+    font-size: var(--fs-base);
+    line-height: var(--lh-body);
+    color: var(--text-2);
+    max-width: 620px;
+    margin: 18px 0 0;
+}
+
+.bio strong {
+    font-weight: 500;
+    color: var(--text);
+}
+
+.interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+}
+
+.interests li {
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 20px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 0 9px;
+    border-radius: 999px;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 22px;
+    list-style: none;
+    margin: 26px 0 0;
+    padding: 0;
+}
+
+.cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+    padding: 0 15px;
+    border-radius: var(--radius);
+    background: var(--accent);
+    color: var(--on-accent);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition: background-color 0.15s;
+}
+
+.cv:hover {
+    background: var(--accent-hover);
+}
+
+.social {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+.social svg {
+    color: var(--text-3);
+    transition: color 0.15s;
+}
+
+.social:hover,
+.social:hover svg {
+    color: var(--accent);
+}
+
+@media (max-width: 640px) {
+    .inner {
         flex-direction: column;
-        gap: 18px;
-        text-align: center;
+        gap: 22px;
+        padding: 44px var(--gutter) 40px;
     }
 
-    .headerText h1 {
-        font-size: 28px;
+    .portrait {
+        width: 108px;
+        height: 108px;
     }
 
-    .headerText h2 {
-        font-size: 15px;
+    .name {
+        font-size: 32px;
     }
 
-    .meta {
-        font-size: 12px;
-    }
-
-    .profilePicture img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .emailButton {
-        width: 100%;
-        justify-content: center;
-        padding: 10px 12px;
-        gap: 8px;
-    }
-
-    .emailText {
-        align-items: center;
-    }
-
-    .emailAddress {
-        font-size: 12px;
+    .role {
+        font-size: var(--fs-base);
     }
 }

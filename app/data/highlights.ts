@@ -3,6 +3,8 @@ export type HighlightItem = {
     description: string;
     venue?: string;
     period: string;
+    /** "YYYY-MM", only used to order items sharing the same year */
+    date?: string;
     href?: string;
 };
 
@@ -44,18 +46,3 @@ export const highlights: HighlightsCategory[] = [
         ]
     }
 ];
-
-const roleRegistry: { name: string; color: string }[] = [
-    { name: "Lecturer", color: "#42a5f5" },
-    { name: "Assistant", color: "#5c6bc0" },
-    { name: "Organizer", color: "#ab47bc" },
-    { name: "Prize Winner", color: "#f9a825" },
-    { name: "Participant", color: "#26a69a" },
-    { name: "Poster", color: "#78a69a" },
-    { name: "Invited Talk", color: "#26c6da" },
-    { name: "Contributed Talk", color: "#26c6da" },
-];
-
-export function getRoleColor(role: string): string {
-    return roleRegistry.find(r => r.name.toLowerCase() === role.toLowerCase())?.color ?? "#39e0c1";
-}

@@ -18,19 +18,19 @@ const MoonIcon = () => (
 
 export function ThemeToggle({ variant = 'desktop' }: { variant?: 'desktop' | 'mobile' }) {
     const theme = useEffectiveTheme();
-    const nextTheme = theme === 'dark' ? 'light' : 'dark';
-    const label = `Switch to ${nextTheme} theme`;
+    const next = theme === 'dark' ? 'light' : 'dark';
+    const label = `Switch to ${next} theme`;
 
     return (
         <button
             type="button"
-            className={variant === 'mobile' ? styles.themeToggleMobile : styles.themeToggle}
-            onClick={() => setTheme(nextTheme)}
+            className={variant === 'mobile' ? styles.toggleMobile : styles.toggle}
+            onClick={() => setTheme(next)}
             aria-label={label}
             title={label}
         >
             {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-            {variant === 'mobile' && <span>{nextTheme === 'light' ? 'Light mode' : 'Dark mode'}</span>}
+            {variant === 'mobile' && <span>{next === "dark" ? "Dark theme" : "Light theme"}</span>}
         </button>
     );
 }
