@@ -2,8 +2,9 @@
 
 export type CvSectionKey =
 	| "summary"
-	| "education"
 	| "experience"
+	| "education"
+	| "activities"
 	| "publications"
 	| "projects"
 	| "skills"
@@ -101,9 +102,10 @@ export const cvConfig: CvConfig = {
 
 	sections: [
 		{ key: "summary", enabled: true },
+		{ key: "experience", enabled: true },
 		{ key: "education", enabled: true },
 		{ key: "publications", enabled: true },
-		{ key: "experience", enabled: true },
+		{ key: "activities", enabled: true },
 		{ key: "projects", enabled: true },
 		{ key: "skills", enabled: true },
 		{ key: "languages", enabled: true },

@@ -7,7 +7,7 @@ import path from "node:path";
 import React from "react";
 import { Document, Page, View, Text, Link, Image, Font, StyleSheet, renderToBuffer } from "@react-pdf/renderer";
 
-import { education, researchInterests } from "../../app/data/education";
+import { education, experience, researchInterests, type EducationEntry } from "../../app/data/education";
 import { highlights } from "../../app/data/highlights";
 import { projects } from "../../app/data/projects";
 import { publications } from "../../app/data/publications";
@@ -215,11 +215,12 @@ function SummarySection() {
 	);
 }
 
-function EducationSection() {
+function TimelineSection({ title, items }: { title: string; items: EducationEntry[] }) {
+	if (items.length === 0) return null;
 	return (
 		<View style={styles.section}>
-			<SectionTitle>Background</SectionTitle>
-			{education.map((item, i) => (
+			<SectionTitle>{title}</SectionTitle>
+			{items.map((item, i) => (
 				<View key={i} style={styles.item}>
 					<View style={styles.itemHeaderRow}>
 						<Text style={styles.itemHeading}>{item.degree}</Text>
@@ -258,7 +259,7 @@ function HighlightsCategorySection({ category }: { category: (typeof highlights)
 	);
 }
 
-function ExperienceSection() {
+function ActivitiesSection() {
 	return (
 		<>
 			{highlights.map((category, ci) => (
@@ -387,8 +388,9 @@ function CustomSectionBlock({ section }: { section: CvCustomSection }) {
 
 const sectionRenderers: Record<CvSectionKey, () => React.ReactElement | null> = {
 	summary: SummarySection,
-	education: EducationSection,
-	experience: ExperienceSection,
+	experience: () => <TimelineSection title="Research Experience" items={experience} />,
+	education: () => <TimelineSection title="Education" items={education} />,
+	activities: ActivitiesSection,
 	publications: PublicationsSection,
 	projects: ProjectsSection,
 	skills: SkillsSection,

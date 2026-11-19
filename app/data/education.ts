@@ -8,13 +8,13 @@ export type EducationEntry = {
     thesis?: string;
 };
 
-export const education: EducationEntry[] = [
+export const experience: EducationEntry[] = [
     {
         degree: "PhD in Physics – Strong Light-Matter Coupling",
         institution: "IPCMS, Strasbourg",
         location: "France",
         period: "2024 – Now",
-        description: "Advisors: Guillaume Weick and David Hagenmüller.",
+        description: "Supervisors: Guillaume Weick and David Hagenmüller.",
         thesis: "Vibrational strong coupling in optical cavities",
     },
     {
@@ -22,9 +22,12 @@ export const education: EducationEntry[] = [
         institution: "CESQ & IPCMS, Strasbourg",
         location: "France",
         period: "2024",
-        description: "Advisors: Guillaume Weick and David Hagenmüller.",
+        description: "Supervisors: Guillaume Weick and David Hagenmüller.",
         thesis: "Impact of dephasing on the dark states of molecular polaritons",
     },
+];
+
+export const education: EducationEntry[] = [
     {
         degree: "Master Degree – International Center for Fundamental Physics (ICFP)",
         institution: "Ecole Normale Supérieure de Paris",
