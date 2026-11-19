@@ -37,8 +37,8 @@ export default function Header() {
                         PhD student in physics at <a href="https://www.ipcms.fr/" target="_blank" rel="noopener noreferrer">IPCMS</a>, Strasbourg
                     </p>
                     <p className={styles.bio}>
-                        I work on <strong>strong light-matter coupling</strong> and its effects on <strong>Raman scattering</strong> and <strong>transport properties</strong>.
-                        Beyond research, I enjoy teaching and making science accessible through interactive explorations and visual explanations.
+                        I work on <strong>strong light-matter coupling</strong> with organic molecules and its effects physical properties such as <strong>Raman scattering</strong> and <strong>charge transport</strong>.
+                        Beyond research, I enjoy teaching, coding and making science accessible through interactive explorations and visual explanations.
                     </p>
                     <ul className={styles.interests} aria-label="Research interests">
                         {researchInterests.map((interest) => <li key={interest}>{interest}</li>)}

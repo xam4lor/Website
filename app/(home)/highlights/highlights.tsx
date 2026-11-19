@@ -26,7 +26,7 @@ function groupByTitle(items: HighlightItem[]) {
 
 export default function Highlights() {
     return (
-        <Section id="highlights" title="Highlights">
+        <Section id="activities" title="Activities">
             {highlights.map((category) => (
                 <div key={category.name} className={styles.category} data-kind={category.icon}>
                     <h3 className={styles.name}>{category.name}</h3>

@@ -218,13 +218,14 @@ function SummarySection() {
 function EducationSection() {
 	return (
 		<View style={styles.section}>
-			<SectionTitle>Education</SectionTitle>
+			<SectionTitle>Background</SectionTitle>
 			{education.map((item, i) => (
 				<View key={i} style={styles.item}>
 					<View style={styles.itemHeaderRow}>
 						<Text style={styles.itemHeading}>{item.degree}</Text>
 						<Text style={styles.itemPeriod}>{item.period}</Text>
 					</View>
+					{item.thesis && <Text style={[styles.itemSubheading, { fontStyle: "italic" }]}>{item.thesis}</Text>}
 					<Text style={styles.itemSubheading}>
 						{item.institution} · {item.location}
 					</Text>

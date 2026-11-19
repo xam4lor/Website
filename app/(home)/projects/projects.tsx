@@ -6,7 +6,7 @@ const PREVIEW_COUNT = 4;
 
 export default function Projects() {
     return (
-        <Section id="projects" title="Selected Projects" actions={[{ href: '/projects', label: 'All projects' }]}>
+        <Section id="projects" title="Selected Personal Projects" actions={[{ href: '/projects', label: 'All projects' }]}>
             <ProjectGrid>
                 {homeProjects.slice(0, PREVIEW_COUNT).map((project) => <ProjectCard key={project.name} project={project} />)}
             </ProjectGrid>

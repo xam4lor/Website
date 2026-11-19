@@ -38,11 +38,11 @@ export const highlights: HighlightsCategory[] = [
         name: "Presentations",
         icon: "presentation",
         items: [
-            { role: "Poster", description: 'Raman Scattering in the Vibrational Strong Coupling Regime', venue: "Summer School – Open Quantum Systems, Les Houches, France", period: "2026" },
-            { role: "Poster", description: 'Raman Scattering in the Vibrational Strong Coupling Regime', venue: "QMat Days, Strasbourg, France", period: "2026" },
-            { role: "Contributed Talk", description: 'Spontaneous Raman scattering under Vibrational Strong Coupling', venue: "European Materials Research Society Conference, Strasbourg, France", period: "2026" },
-            { role: "Invited Talk", description: 'Spontaneous Raman scattering under Vibrational Strong Coupling', venue: "Namasute Workshop, Odense, Denmark", period: "2026" },
-            { role: "Invited Talk", description: 'Spontaneous Raman scattering under Vibrational Strong Coupling : The critical role of polariton spatial mode coherence', venue: "ℏ-Meeting, Strasbourg, France", period: "2025" },
+            { role: "Poster", description: 'Raman Scattering under Vibrational Strong Coupling', venue: "Summer School – Open Quantum Systems, Les Houches, France", period: "2026" },
+            { role: "Poster", description: 'Raman Scattering under Vibrational Strong Coupling', venue: "QMat Days, Strasbourg, France", period: "2026" },
+            { role: "Contributed Talk", description: 'Raman Scattering under Vibrational Strong Coupling', venue: "European Materials Research Society Conference, Strasbourg, France", period: "2026" },
+            { role: "Invited Talk", description: 'Raman Scattering under Vibrational Strong Coupling', venue: "Namasute Workshop, Odense, Denmark", period: "2026" },
+            { role: "Invited Talk", description: 'Raman Scattering under Vibrational Strong Coupling', venue: "ℏ-Meeting, Strasbourg, France", period: "2025" },
         ]
     }
 ];

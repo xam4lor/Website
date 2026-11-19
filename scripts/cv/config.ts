@@ -61,7 +61,7 @@ export const cvConfig: CvConfig = {
 		name: "Maxime Dherbécourt",
 		title: "PhD Student in Physics",
 		address: {
-			institution: "IPCMS – Université de Strasbourg",
+			institution: "IPCMS, Strasbourg",
 			street: "23 Rue du Loess",
 			postalCode: "67200 Strasbourg",
 		},
@@ -102,8 +102,8 @@ export const cvConfig: CvConfig = {
 	sections: [
 		{ key: "summary", enabled: true },
 		{ key: "education", enabled: true },
-		{ key: "experience", enabled: true },
 		{ key: "publications", enabled: true },
+		{ key: "experience", enabled: true },
 		{ key: "projects", enabled: true },
 		{ key: "skills", enabled: true },
 		{ key: "languages", enabled: true },

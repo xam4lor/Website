@@ -70,6 +70,14 @@
     font-weight: 600;
 }
 
+.thesis {
+    font-size: var(--fs-sm);
+    font-style: italic;
+    line-height: 1.5;
+    margin-top: 3px;
+    color: var(--text-2);
+}
+
 .sub {
     font-size: var(--fs-sm);
     line-height: 1.6;
